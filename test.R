@@ -1,4 +1,4 @@
-library(rglobi)
+#library(rglobi)
 library(stringr)
 
 all_interactions <- c("eats",
