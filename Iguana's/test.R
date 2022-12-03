@@ -30,13 +30,13 @@ all_interactions <- c("eats",
                       "acquiresNutrientsFrom",
                       "mutualistOf",
                       "flowersVisitedBy",
-                      "ecologicallyRelatedTo",
+                      #"ecologicallyRelatedTo",
                       "coRoostsWith",
                       "adjacentTo")
 
  
 #looping over all species within species list
-for (species_name in species_list$input_list[1:5]) {
+for (species_name in species_list$input_list[1]) {
   
   #replace white space with '%20', which is necessary for API
   species_name <- str_replace_all(species_name, ' ', '%20')
@@ -58,13 +58,13 @@ for (species_name in species_list$input_list[1:5]) {
         #if output file does not yet exist, create one
         if (file.exists("download_globi.txt")==FALSE) {
         write.table(temp_download,
-                    file="download_globi.txt",
+                    file="./Iguana's/download_globi.txt",
                     row.names=FALSE,
                     sep=";")}
         
         #add interactions to output file in case it already exists
         else {write.table(temp_download, 
-                          file="download_globi.txt",
+                          file="./Iguana's/download_globi.txt",
                           col.names = FALSE,
                           append=TRUE,
                           row.names=FALSE,
