@@ -3,10 +3,8 @@ library(stringr)
 
 
 #read in input
-species_list <- read_excel("species list for secondary interactions (1).xlsx", 
-                          sheet ="all taxons", col_names = FALSE)
-#clean up input
-names(species_list)[1] <- "input_list"
+species_list <- c('Vespa velutina')
+
 
 #create vector with all types of interactions occurring in GLobI
 all_interactions <- c("eats",
@@ -30,14 +28,13 @@ all_interactions <- c("eats",
                       "acquiresNutrientsFrom",
                       "mutualistOf",
                       "flowersVisitedBy",
-                      #"ecologicallyRelatedTo",
+                      "ecologicallyRelatedTo",
                       "coRoostsWith",
                       "adjacentTo")
 
-list_of_orders<- c('Animalia')
  
 #looping over all species within species list
-for (species_name in species_list$input_list) {
+for (species_name in species_list) {
   
   #replace white space with '%20', which is necessary for API
   species_name <- str_replace_all(species_name, ' ', '%20')
@@ -57,14 +54,14 @@ for (species_name in species_list$input_list) {
       if (dim(temp_download_source)[1]>0) {
         
         #if output file does not yet exist, create one
-        if (file.exists("download_globi.txt")==FALSE) {
-        write.table(temp_download,
+        if (file.exists("download_globi_source.txt")==FALSE) {
+        write.table(temp_download_source,
                     file="download_globi_source.txt",
                     row.names=FALSE,
                     sep=";")}
         
         #add interactions to output file in case it already exists
-        else {write.table(temp_download, 
+        else {write.table(temp_download_source, 
                           file="download_globi_source.txt",
                           col.names = FALSE,
                           append=TRUE,
@@ -75,7 +72,7 @@ for (species_name in species_list$input_list) {
       
       #generate warning in case temporary download contained more than 1042 interactions
       #1042 was mentioned as limit in API documentation but this seems not to be the case here
-      if (dim(temp_download)[1]>1042) {
+      if (dim(temp_download_source)[1]>1042) {
         warning(paste0(
         species_name,
         ' has ',
@@ -88,7 +85,29 @@ for (species_name in species_list$input_list) {
 }
 print("Finished sources!")
 
-for (species_name in species_list$input_list) {
+list_of_Phyla <- c("Porifera",
+                  "Coelenterata",
+                  "Ctenophora",
+                  "Platyhelminthes",
+                  "Aschelminthes",
+                  "Arthropoda",
+                  "Mollusca",
+                  "Echinodermata",
+                  "Hemichordata",
+                  "Chordata")
+
+all_interactions <- c("eats",
+                      "eatenBy",
+                      "preysOn",
+                      "preyedUponBy",
+                      "kills",
+                      "killedBy",
+                      "pollinatedBy",
+                      "flowersVisitedBy",
+                      "Angiospermorphyta",
+                      )
+
+for (species_name in species_list) {
   
   #replace white space with '%20', which is necessary for API
   species_name <- str_replace_all(species_name, ' ', '%20')
@@ -96,7 +115,7 @@ for (species_name in species_list$input_list) {
   
   for (interaction_type in all_interactions) {
 
-    for (order in list_of_orders) {
+    for (order in list_of_Phyla) {
     print(order)
     
   
