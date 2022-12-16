@@ -1,0 +1,78 @@
+---
+title: "open_entire_globi"
+author: "jasmijn_hillaert"
+date: "2022-12-16"
+output: html_document
+---
+
+
+```{r}
+library(arrow)
+library(dplyr)
+library(pillar)
+```
+
+
+```{r}
+#testing to open as dataset
+opts <- CsvConvertOptions$create(col_types = schema(sourceTaxonSubgenusName = string(),
+                                                    sourceTaxonSubgenusId = string(),
+                                                    sourceId = string(),
+                                                    sourceOccurrenceId= string(),
+                                                    sourceInstitutionCode= string(),
+                                                    sourceCollectionCode= string(),
+                                                    sourceCatalogNumber= string(),
+                                                    sourceBasisOfRecordId= string(),
+                                                    sourceBasisOfRecordName= string(),
+                                                    sourceLifeStageId= string(),
+                                                    sourceLifeStageName= string(),
+                                                    sourceBodyPartId= string(),
+                                                    sourceBodyPartName= string(),
+                                                    sourcePhysiologicalStateId= string(),
+                                                    sourcePhysiologicalStateName=string(),
+                                                    sourceSexId= string(),
+                                                    sourceSexName= string(),
+                                                    targetTaxonSubgenusName= string(),
+                                                    targetTaxonSubgenusId= string(),
+                                                    targetId= string(),
+                                                    targetOccurrenceId= string(),
+                                                    targetInstitutionCode= string(),
+                                                    targetCollectionCode= string(),
+                                                    targetCatalogNumber= string(),
+                                                    targetBasisOfRecordId= string(),
+                                                    targetBasisOfRecordName= string(),
+                                                    targetBodyPartId= string(),
+                                                    targetBodyPartName= string(),
+                                                    targetPhysiologicalStateId= string(),
+                                                    targetPhysiologicalStateName= string(),
+                                                    targetSexId= string(),
+                                                    targetSexName= string(),
+                                                    decimalLatitude= string(),
+                                                    decimalLongitude= string(),
+                                                    localityId= string(),
+                                                    eventDate= string(),
+                                                    referenceDoi= string(),
+                                                    referenceUrl= string()
+                                                    ))
+
+ds <- open_dataset(
+  sources = "C:/Users/jasmijn_hillaert/Downloads/interactions.tsv.gz", 
+  format = "text",
+  delimiter = "\t",
+  convert_options = opts
+)
+
+#What is in there?
+glimpse(ds) #is not working?
+```
+
+
+```{r}
+#reading in only selected part of data
+ds %>%
+  filter(sourceTaxonName=="Vespa velutina")%>%
+  select(sourceTaxonName,interactionTypeName, targetTaxonName)%>%
+  distinct()%>%
+  collect()
+
+```
