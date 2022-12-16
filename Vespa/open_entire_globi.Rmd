@@ -70,7 +70,6 @@ glimpse(ds) #is not working?
 ```{r}
 #reading in only selected part of data
 ds %>%
-  filter(sourceTaxonName=="Vespa velutina")%>%
   select(sourceTaxonName,interactionTypeName, targetTaxonName)%>%
   distinct()%>%
   collect()
