@@ -5,3 +5,8 @@ $ cat vespa-velutina-interactions.tsv| cut -f3,39,43 | sort | uniq -c | sort -nr
 #saving taxonID from sources as output from nomer
 $ cat vespa-velutina-interactions.tsv| cut -f2 | sort | uniq -c | sort -nr | tee taxonIDs_soources.tsv
 
+#saving taxonID from targets as output from nomer
+$ cat vespa-velutina-interactions.tsv| cut -f42 | sort | uniq -c | sort -nr | tee taxonIDs_targets.tsv
+
+
+
