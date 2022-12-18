@@ -12,7 +12,7 @@ $ cat vespa-velutina-interactions.tsv| cut -f42 | sort | uniq -c | sort -nr | te
 $ zgrep -f -e GBIF_keys.txt interactions.tsv.gzp > secundary_interactions.tsv
 
 #searching and saving interactions of targets vespa velutina
-zgrep -e -f  taxonIDs_targets.tsv interactions.tsv.gz > secundary_interactions_targets.tsv
+$ zgrep -e -f  taxonIDs_targets.tsv interactions.tsv.gz > secundary_interactions_targets.tsv
 
 
 
