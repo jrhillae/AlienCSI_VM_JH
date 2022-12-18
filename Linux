@@ -8,5 +8,13 @@ $ cat vespa-velutina-interactions.tsv| cut -f2 | sort | uniq -c | sort -nr | tee
 #saving taxonID from targets as output from nomer
 $ cat vespa-velutina-interactions.tsv| cut -f42 | sort | uniq -c | sort -nr | tee taxonIDs_targets.tsv
 
+#searching and saving interactions of sources vespa velutina
+$ zgrep -f -e GBIF_keys.txt interactions.tsv.gzp > secundary_interactions.tsv
+
+#searching and saving interactions of targets vespa velutina
+zgrep -e -f  taxonIDs_targets.tsv interactions.tsv.gz > secundary_interactions_targets.tsv
+
+
+
 
 
