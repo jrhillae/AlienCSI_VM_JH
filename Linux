@@ -9,10 +9,19 @@ $ cat vespa-velutina-interactions.tsv| cut -f2 | sort | uniq -c | sort -nr | tee
 $ cat vespa-velutina-interactions.tsv| cut -f42 | sort | uniq -c | sort -nr | tee taxonIDs_targets.tsv
 
 #searching and saving interactions of sources vespa velutina
-$ zgrep -f -e GBIF_keys.txt interactions.tsv.gzp > secundary_interactions.tsv
+$ zgrep -e -f GBIF_keys.txt interactions.tsv.gzp > secundary_interactions_sources.tsv
 
 #searching and saving interactions of targets vespa velutina
 $ zgrep -e -f  taxonIDs_targets.tsv interactions.tsv.gz > secundary_interactions_targets.tsv
+
+#cleaning up vespa velutina interactions.tsv
+$cat vespa-velutina-interactions.tsv| cut -f2,3,4,20,22,39,42,43,44,49,60,62 | sort | uniq -c | sort -nr | tee vespa-velutina-interactions-light.tsv^C
+
+#cleaning up secundary_interactions_sources.tsv
+$cat secundary_interactions_sources.tsv| cut -f2,3,4,20,22,39,42,43,44,49,60,62 | sort | uniq -c | sort -nr | tee secundary-interactions-sources-light.tsv
+
+#cleanging up secundary_interactions_targets.tsv
+$cat secundary_interactions_targets.tsv| cut -f2,3,4,20,22,39,42,43,44,49,60,62 | sort | uniq -c | sort -nr | tee secundary-interactions-targets-light.tsv
 
 
 
