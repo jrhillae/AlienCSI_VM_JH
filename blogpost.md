@@ -97,4 +97,9 @@ cat secundary_interactions_targets.tsv| cut -f2,3,4,20,22,39,42,43,44,48,60,62 |
 
 ## How to correctly cite your work?
 
+How to refer to sources of Nomer?
+```shell
+nomer properties| grep preston
+```
+
 
