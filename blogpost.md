@@ -50,15 +50,21 @@ Manually remove the first row of the files in case it represents an empty line. 
 $ while read line; do zgrep "$line" interactions.tsv.gz >>secundary_interactions_sources.tsv; done <vespa_velutina_sources.tsv
 $ while read line; do zgrep "$line" interactions.tsv.gz >>secundary_interactions_targets.tsv; done <vespa_velutina_targets.tsv
 ```
+
 Finally, we simplify the dataoutput to the columns we are interested in and delete any duplicate rows. The following columns are included in this output (select any columns depending on your interest):
-  column 2: taxonids of the source species
-  column 3: taxon name
-  column 4: species level of source species
-  column 8: mapped species name
-  column 20: phylum name source species
-  column 22: kingdom name source species
-  column 39: interaction type
-  column
+  - column 2: taxonids of the source species
+  - column 3: taxon name
+  - column 4: taxonomic level of source species
+  - column 8: mapped source species name
+  - column 20: phylum name source species
+  - column 22: kingdom name source species
+  - column 39: interaction type
+  - column 42: taxonids of the target species
+  - column 43: taxon name 
+  - column 44: taxonomic level of target species
+  - column 48: mapped target species name
+  - column 60: phylum name source species
+  - column 62: kingdom name source species 
 
 
 
