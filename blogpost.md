@@ -24,7 +24,10 @@ Define this new folder as your working directory:
 ## Data filtering from entire GloBi database 
 Now, go to the GloBI website and download [the entire GloBI database](https://zenodo.org/record/7348355/files/interactions.tsv.gz). The database of GloBI is available in [many formats](https://www.globalbioticinteractions.org/data). For the following, you are advised to download a stable (citable) version of the database in tsv format. Place the download into the working directory after downloading. 
 
-In this example, we are interested in creating a network for _Vespa velutina_, containing both direct and indirect interactions. Therefore, we now search the database for all lines containing *Vespa velutina*. This outcome is saved into a the file vespa_velutina_interactions.tsv by:
+In this example, we are interested in creating a network for _Vespa velutina_, containing both direct and indirect interactions. 
+
+### Filtering direct interactions from GloBI
+To obtain the direct interactions, we now search the database for all lines containing *Vespa velutina*. This outcome is saved into a the file vespa_velutina_interactions.tsv by:
 ```shell  
   $ zgrep "Vespa velutina" interactions.tsv.gz >>vespa_velutina_interactions.tsv   
 ```
@@ -38,20 +41,8 @@ Check the number of lines within vespa_velutina_interactions.tsv by:
 ```shell
   $ cat vespa_velutina_interactions.tsv | wc -l  
 ```
-Before we continue it is important to highlight that an interaction always consists out of a source species, an interaction type and a target species. In the file vespa_velutina_interactions.tsv, _Vespa velutina_ might occur both as source or target species. In the following we want to list all unique source and target species with which _Vespa velutina_ is interacting. To do this, we filter all unique species names from column 8 and 48 within the file vespa_velutina_interactions.tsv. Both columns refer to the [mapped species name](https://www.globalbioticinteractions.org/process) of the source species and target species, respectively.
+The file vespa_velutina_interactions.tsv contains all direct interactions of _Vespa velutina_ within the GloBI database. We clean this final file before importing in R by only saving the following columns and deleting any duplicate rows: 
 
-```shell
- $ cat vespa_velutina_interactions.tsv| cut -f8 | sort | uniq > vespa_velutina_sources.tsv 
- $ cat vespa_velutina_interactions.tsv| cut -f48 | sort | uniq > vespa_velutina_targets.tsv 
-```
-Manually remove the first row of the files in case it represents an empty line. Now we loop over each of these species within these files and write out all interactions containing these species into an output file (secundary_interactions_sources.tsv and secundary_interactions_targets.tsv, respectively)
-
-```shell
-$ while read line; do zgrep "$line" interactions.tsv.gz >>secundary_interactions_sources.tsv; done <vespa_velutina_sources.tsv
-$ while read line; do zgrep "$line" interactions.tsv.gz >>secundary_interactions_targets.tsv; done <vespa_velutina_targets.tsv
-```
-
-Finally, we simplify the dataoutput to the columns we are interested in and delete any duplicate rows. The following columns are included in this output:
   - column 2: taxonids of the source species
   - column 3: taxon name
   - column 4: taxonomic level of source species
@@ -65,9 +56,27 @@ Finally, we simplify the dataoutput to the columns we are interested in and dele
   - column 48: mapped target species name
   - column 60: phylum name target species
   - column 62: kingdom name target species 
- 
+
 ```shell
 $cat vespa_velutina_interactions.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr | tee vespa_velutina_interactions-light.tsv
+```
+
+### Filtering indirect interactions from GloBI
+Before we continue with filtering the indirect interactions of _Vespa velutina_ from GloBI, it is important to highlight that an interaction always consists out of a source species, an interaction type and a target species. In the file vespa_velutina_interactions.tsv, _Vespa velutina_ might occur both as source or target species. Now, we want to list all unique source and target species with which _Vespa velutina_ is interacting. To do this, we filter all unique species names from column 8 and 48 within the file vespa_velutina_interactions.tsv. Both columns refer to the [mapped species name](https://www.globalbioticinteractions.org/process) of the source species and target species, respectively.
+
+```shell
+ $ cat vespa_velutina_interactions.tsv| cut -f8 | sort | uniq > vespa_velutina_sources.tsv 
+ $ cat vespa_velutina_interactions.tsv| cut -f48 | sort | uniq > vespa_velutina_targets.tsv 
+```
+Manually remove the first row of the files in case it represents an empty line. The indirect interaction of _Vespa velutina_ are selected from GloBI by looping over each of these species within both files and write out all interactions containing these species into an output file (secundary_interactions_sources.tsv and secundary_interactions_targets.tsv, respectively)
+
+```shell
+$ while read line; do zgrep "$line" interactions.tsv.gz >>secundary_interactions_sources.tsv; done <vespa_velutina_sources.tsv
+$ while read line; do zgrep "$line" interactions.tsv.gz >>secundary_interactions_targets.tsv; done <vespa_velutina_targets.tsv
+```
+Again, we clean up both output files by only selecting particular columns (see above) and deleting duplicate rows.
+
+```shell
 $cat secundary_interactions_sources.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr | tee secundary_interactions_sources_light.tsv
 $cat secundary_interactions_targets.tsv| cut -f2,3,4,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr | tee secundary_interactions_targets_light.tsv
 ```
