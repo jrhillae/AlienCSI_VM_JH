@@ -35,7 +35,7 @@ In this example, we are interested in creating a network for _Vespa velutina_, c
 ### Getting direct interactions from GloBI
 To obtain the direct interactions, we now search the database for all lines containing *Vespa velutina*. This outcome is saved into a the file vespa_velutina_interactions.tsv by:
 ```shell  
-zgrep "Vespa velutina" interactions.tsv.gz >>vespa_velutina_interactions.tsv   
+zgrep "Vespa velutina" interactions.tsv.gz > vespa_velutina_interactions.tsv   
 ```
 Herein, zgrep allows searching within zipped files. As such, a file does not not need to be unpacked beforehand.
 
@@ -64,7 +64,7 @@ The file vespa_velutina_interactions.tsv contains all direct interactions of _Ve
   - column 62: kingdom name target species 
 
 ```shell
-cat vespa_velutina_interactions.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr | tee vespa_velutina_interactions-light.tsv
+cat vespa_velutina_interactions.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr > vespa_velutina_interactions-light.tsv
 ```
 
 ### Getting indirect interactions from GloBI
@@ -77,14 +77,14 @@ cat vespa_velutina_interactions.tsv| cut -f48 | sort | uniq > vespa_velutina_tar
 Manually remove the first row of the files in case it represents an empty line. The indirect interaction of _Vespa velutina_ are selected from GloBI by looping over each of these species within both files and writing out all interactions containing these species into an output file (secundary_interactions_sources.tsv and secundary_interactions_targets.tsv, respectively)
 
 ```shell
-while read line; do zgrep "$line" interactions.tsv.gz >>secundary_interactions_sources.tsv; done <vespa_velutina_sources.tsv
-while read line; do zgrep "$line" interactions.tsv.gz >>secundary_interactions_targets.tsv; done <vespa_velutina_targets.tsv
+while read line; do zgrep "$line" interactions.tsv.gz >> secundary_interactions_sources.tsv; done <vespa_velutina_sources.tsv
+while read line; do zgrep "$line" interactions.tsv.gz >> secundary_interactions_targets.tsv; done <vespa_velutina_targets.tsv
 ```
 Again, we clean up both output files by only selecting particular columns (see above) and deleting duplicate rows.
 
 ```shell
-cat secundary_interactions_sources.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr | tee secundary_interactions_sources_light.tsv
-cat secundary_interactions_targets.tsv| cut -f2,3,4,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr | tee secundary_interactions_targets_light.tsv
+cat secundary_interactions_sources.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr > secundary_interactions_sources_light.tsv
+cat secundary_interactions_targets.tsv| cut -f2,3,4,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr >  secundary_interactions_targets_light.tsv
 ```
 
 ## Fine tuning of network within R
