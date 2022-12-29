@@ -102,7 +102,7 @@ Install curl if not yet installed:
 sudo apt install curl
 ```
 
-Download Nomer locally. Check for the most recent versions of Nomer (here)[https://github.com/globalbioticinteractions/nomer/releases] and adapt url-link below.:
+Download Nomer locally. Check for the most recent versions of Nomer (here)https://github.com/globalbioticinteractions/nomer/releases] and adapt url-link below.:
 ```shell
 curl -L https://github.com/globalbioticinteractions/nomer/releases/download/0.4.8/nomer.deb > nomer.deb
 ```
@@ -112,7 +112,7 @@ Install Nomer and its dependencies:
 sudo apt install ./nomer.deb
 ```
 
-Download taxonomic backbone of GBIF for Nomer locally. Check for the most recent versions of Nomer (here)[https://github.com/globalbioticinteractions/nomer/releases] and adapt url-link below.
+Download taxonomic backbone of GBIF for Nomer locally. Check for the most recent versions of Nomer (here)https://github.com/globalbioticinteractions/nomer/releases] and adapt url-link below.
 ```shell
 curl -L https://github.com/globalbioticinteractions/nomer/releases/download/0.4.8/gbif_mapdb.zip > ~/.cache/nomer/gbif_mapdb.zip                  
 ```
