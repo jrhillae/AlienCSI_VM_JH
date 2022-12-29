@@ -21,7 +21,7 @@ Turn this new folder into your working directory:
 ```shell 
   $ cd /home/username/newfolder
 ```
-##data filtering from entire GloBi database 
+## data filtering from entire GloBi database 
 Now, go to the GloBI website and download the entire GloBI database. The database of GloBI is available in many formats. For the following, you are advised to download a stable (citable) version of the database in tsv format. Place the download into the working directory after downloading. 
 
 In this example, we are interested in creating a network for Vespa velutina, containing both direct and indirect interactions. Therefore, we now search the database for all lines containing Vespa velutina. This outcome is saved into a the file vespa-velutina-interactions.tsv by:
@@ -38,12 +38,12 @@ Check the number of lines within vespa_velutina_interactions.tsv by:
 ```shell
   $ cat vespa_velutina_interactions.tsv | wc -l  
 ```
-##fine tuning of network within R
+## fine tuning of network within R
 
-##intermetzo: taxonomic allignment with Nomer
+## intermetzo: taxonomic allignment with Nomer
 
-##finalizing network
+## finalizing network
 
-##network visualisation in Gephi
+## network visualisation in Gephi
 
 
