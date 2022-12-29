@@ -117,7 +117,7 @@ Download taxonomic backbone of GBIF for Nomer locally. Check for the most recent
 curl -L https://github.com/globalbioticinteractions/nomer/releases/download/0.4.8/gbif_mapdb.zip > ~/.cache/nomer/gbif_mapdb.zip                  
 ```
 
-Add tabb in front of each speciesname, a necessity for running Nomer, and lookup the GBIF taxonomic backbone for each species. Save outcome in all_species_network_gbif.tsv.
+Add a tab in front of each species name, a necessity for running Nomer, and lookup the GBIF taxonomic backbone for each species. Save outcome in all_species_network_gbif.tsv.
 ```shell
 cat all_species_network.csv |sed "s/^/\t/g" | pv -l| nomer append gbif> all_species_network_gbif.tsv 
 ```
