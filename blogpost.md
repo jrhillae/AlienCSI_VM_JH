@@ -51,7 +51,7 @@ $ while read line; do zgrep "$line" interactions.tsv.gz >>secundary_interactions
 $ while read line; do zgrep "$line" interactions.tsv.gz >>secundary_interactions_targets.tsv; done <vespa_velutina_targets.tsv
 ```
 
-Finally, we simplify the dataoutput to the columns we are interested in and delete any duplicate rows. The following columns are included in this output (select any columns depending on your interest):
+Finally, we simplify the dataoutput to the columns we are interested in and delete any duplicate rows. The following columns are included in this output:
   - column 2: taxonids of the source species
   - column 3: taxon name
   - column 4: taxonomic level of source species
@@ -65,10 +65,12 @@ Finally, we simplify the dataoutput to the columns we are interested in and dele
   - column 48: mapped target species name
   - column 60: phylum name source species
   - column 62: kingdom name source species 
-
-
-
-
+ 
+```shell
+$cat vespa-velutina-interactions.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr | tee vespa-velutina-interactions-light.tsv
+$cat secundary_interactions_sources.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr | tee secundary-interactions-sources-light.tsv
+$cat secundary_interactions_targets.tsv| cut -f2,3,4,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr | tee secundary-interactions-targets-light.tsv
+```
 ## Fine tuning of network within R
 
 ## Intermetzo: taxonomic allignment with Nomer
