@@ -30,7 +30,7 @@ In this example, we are interested in creating a network for _Vespa velutina_, c
 ```
 Herein, zgrep allows searching within zipped files. As such, a file does not not need to be unpacked beforehand.
 
-Check the file vespa_velutina_interactions.tsv by printing its header within the terminal: 
+Explore the file vespa_velutina_interactions.tsv by printing its header within the terminal: 
  ```shell 
   $ cat vespa_velutina_interactions.tsv | head
 ```
