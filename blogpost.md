@@ -38,18 +38,21 @@ Check the number of lines within vespa_velutina_interactions.tsv by:
 ```shell
   $ cat vespa_velutina_interactions.tsv | wc -l  
 ```
-Before we continue it is important to highlight that an interactions always consists out of a source species, an interaction type and a target species. In the file vespa_velutina_interactions.tsv, _Vespa velutina_ might occur both as source or target species. In the following we want to list all unique source and target species with which _Vespa velutina_ is interacting. To do this, we filter all unique species names from column 8 and 48 within the file vespa_velutina_interactions.tsv. Both column refer to the [mapped species name](https://www.globalbioticinteractions.org/process) of the source species and target species, respectively, within the interaction.
+Before we continue it is important to highlight that an interactions always consists out of a source species, an interaction type and a target species. In the file vespa_velutina_interactions.tsv, _Vespa velutina_ might occur both as source or target species. In the following we want to list all unique source and target species with which _Vespa velutina_ is interacting. To do this, we filter all unique species names from column 8 and 48 within the file vespa_velutina_interactions.tsv. Both columns refer to the [mapped species name](https://www.globalbioticinteractions.org/process) of the source species and target species, respectively, within the interaction.
 
 ```shell
  $ cat vespa-velutina-interactions.tsv| cut -f8 | sort | uniq > vespa_velutina_sources.tsv 
  $ cat vespa-velutina-interactions.tsv| cut -f48 | sort | uniq > vespa_velutina_targets.tsv 
 ```
-Now we loop over each of these species and write out all interactions containing these species into an output file (interactions_sources.tsv and interactions_targets.tsv respectively)
+Now we loop over each of these species and write out all interactions containing these species into an output file (secundary_interactions_sources.tsv and secundary_interactions_targets.tsv, respectively)
 
 ```shell
- $ cat vespa-velutina-interactions.tsv| cut -f8 | sort | uniq > vespa_velutina_sources.tsv 
- $ cat vespa-velutina-interactions.tsv| cut -f48 | sort | uniq > vespa_velutina_targets.tsv 
+$ while read line; do zgrep "$line" interactions.tsv.gz >>secundary_interactions_sources.tsv; done <vespa_velutina_sources.tsv
+$ while read line; do zgrep "$line" interactions.tsv.gz >>secundary_interactions_targets.tsv; done <vespa_velutina_targets.tsv
 ```
+Finally, we simplify the dataoutput to the columns we are interested in and delete any duplicate rows. The following columns are included in this output:
+
+
 
 ## Fine tuning of network within R
 
