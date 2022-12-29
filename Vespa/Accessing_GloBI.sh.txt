@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#first download interactions.tsv.gz from GloBI in the working directory
+
+zgrep "Vespa velutina" interactions.tsv.gz >>direct_interactions.tsv 
+  
+cat direct_interactions.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr | tee direct_interactions-light.tsv
+
+cat direct_interactions.tsv| cut -f8 | sort | uniq > direct_sources.tsv 
+
+cat direct_interactions.tsv| cut -f48 | sort | uniq > direct_targets.tsv 
+
+while read line; do zgrep "$line" interactions.tsv.gz >>secundary_interactions_sources.tsv; done <direct_sources.tsv
+
+while read line; do zgrep "$line" interactions.tsv.gz >>secundary_interactions_targets.tsv; done <direct_targets.tsv
+
+cat secundary_interactions_sources.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr | tee secundary_interactions_sources_light.tsv
+
+cat secundary_interactions_targets.tsv| cut -f2,3,4,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr | tee secundary_interactions_targets_light.tsv

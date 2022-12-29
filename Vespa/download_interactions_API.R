@@ -3,10 +3,11 @@ library(stringr)
 
 
 #read in input
-species_list <- c('Vespa velutina')
+species_list <- c('Vespa velutina', 'Vespa velutina nigrothorax')
 
 
 #create vector with all types of interactions occurring in GLobI
+#all interactions of gloBI #add the link
 all_interactions <- c("eats",
                       "eatenBy",
                       "preysOn",
@@ -103,8 +104,7 @@ all_interactions <- c("eats",
                       "kills",
                       "killedBy",
                       "pollinatedBy",
-                      "flowersVisitedBy",
-                      "Angiospermorphyta",
+                      "flowersVisitedBy"
                       )
 
 for (species_name in species_list) {
@@ -151,3 +151,8 @@ for (species_name in species_list) {
 }
 
 print('Finished targets!')
+
+library(rgbif)
+
+test <- name_backbone('Vespa velutina')
+test2 <- name_backbone_checklist
