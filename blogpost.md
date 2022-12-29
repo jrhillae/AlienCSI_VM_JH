@@ -38,6 +38,8 @@ Check the number of lines within vespa_velutina_interactions.tsv by:
 ```shell
   $ cat vespa_velutina_interactions.tsv | wc -l  
 ```
+Before we continue it is important to highlight that an interactions always consists out of a source species, an interaction type and a target species. In the file vespa_velutina_interactions.tsv, _Vespa velutina_ might occur both as source or target species. In the following we want to list all unique source and target species with which _Vespa velutina_ is interacting. To do this, we filter all unique species names from column 8 and 48 within the file vespa_velutina_interactions.tsv. Both column refer to the [mapped species name](https://www.globalbioticinteractions.org/process) of the source species and target species, respectively, within the interaction.
+
 ## Fine tuning of network within R
 
 ## Intermetzo: taxonomic allignment with Nomer
