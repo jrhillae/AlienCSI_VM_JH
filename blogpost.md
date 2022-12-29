@@ -41,8 +41,8 @@ Check the number of lines within vespa_velutina_interactions.tsv by:
 Before we continue it is important to highlight that an interaction always consists out of a source species, an interaction type and a target species. In the file vespa_velutina_interactions.tsv, _Vespa velutina_ might occur both as source or target species. In the following we want to list all unique source and target species with which _Vespa velutina_ is interacting. To do this, we filter all unique species names from column 8 and 48 within the file vespa_velutina_interactions.tsv. Both columns refer to the [mapped species name](https://www.globalbioticinteractions.org/process) of the source species and target species, respectively, within the interaction.
 
 ```shell
- $ cat vespa-velutina-interactions.tsv| cut -f8 | sort | uniq > vespa_velutina_sources.tsv 
- $ cat vespa-velutina-interactions.tsv| cut -f48 | sort | uniq > vespa_velutina_targets.tsv 
+ $ cat vespa_velutina_interactions.tsv| cut -f8 | sort | uniq > vespa_velutina_sources.tsv 
+ $ cat vespa_velutina_interactions.tsv| cut -f48 | sort | uniq > vespa_velutina_targets.tsv 
 ```
 Manually remove the first row of the files in case it represents an empty line. Now we loop over each of these species and write out all interactions containing these species into an output file (secundary_interactions_sources.tsv and secundary_interactions_targets.tsv, respectively)
 
@@ -67,9 +67,9 @@ Finally, we simplify the dataoutput to the columns we are interested in and dele
   - column 62: kingdom name source species 
  
 ```shell
-$cat vespa-velutina-interactions.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr | tee vespa-velutina-interactions-light.tsv
-$cat secundary_interactions_sources.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr | tee secundary-interactions-sources-light.tsv
-$cat secundary_interactions_targets.tsv| cut -f2,3,4,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr | tee secundary-interactions-targets-light.tsv
+$cat vespa_velutina_interactions.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr | tee vespa_velutina_interactions-light.tsv
+$cat secundary_interactions_sources.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr | tee secundary_interactions_sources_light.tsv
+$cat secundary_interactions_targets.tsv| cut -f2,3,4,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr | tee secundary_interactions_targets_light.tsv
 ```
 ## Fine tuning of network within R
 
