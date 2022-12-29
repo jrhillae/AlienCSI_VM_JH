@@ -44,6 +44,12 @@ Before we continue it is important to highlight that an interactions always cons
  $ cat vespa-velutina-interactions.tsv| cut -f8 | sort | uniq > vespa_velutina_sources.tsv 
  $ cat vespa-velutina-interactions.tsv| cut -f48 | sort | uniq > vespa_velutina_targets.tsv 
 ```
+Now we loop over each of these species and write out all interactions containing these species into an output file (interactions_sources.tsv and interactions_targets.tsv respectively)
+
+```shell
+ $ cat vespa-velutina-interactions.tsv| cut -f8 | sort | uniq > vespa_velutina_sources.tsv 
+ $ cat vespa-velutina-interactions.tsv| cut -f48 | sort | uniq > vespa_velutina_targets.tsv 
+```
 
 ## Fine tuning of network within R
 
@@ -52,5 +58,7 @@ Before we continue it is important to highlight that an interactions always cons
 ## Finalizing network
 
 ## Network visualisation in Gephi
+
+## How to correctly cite your work?
 
 
