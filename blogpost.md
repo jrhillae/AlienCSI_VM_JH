@@ -63,8 +63,8 @@ Finally, we simplify the dataoutput to the columns we are interested in and dele
   - column 43: taxon name 
   - column 44: taxonomic level of target species
   - column 48: mapped target species name
-  - column 60: phylum name source species
-  - column 62: kingdom name source species 
+  - column 60: phylum name target species
+  - column 62: kingdom name target species 
  
 ```shell
 $cat vespa_velutina_interactions.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr | tee vespa_velutina_interactions-light.tsv
