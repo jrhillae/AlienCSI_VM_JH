@@ -24,7 +24,7 @@ Turn this new folder into your working directory:
 ## data filtering from entire GloBi database 
 Now, go to the GloBI website and download the entire GloBI database. The database of GloBI is available in many formats. For the following, you are advised to download a stable (citable) version of the database in tsv format. Place the download into the working directory after downloading. 
 
-In this example, we are interested in creating a network for Vespa velutina, containing both direct and indirect interactions. Therefore, we now search the database for all lines containing *Vespa velutina*. This outcome is saved into a the file vespa-velutina-interactions.tsv by:
+In this example, we are interested in creating a network for Vespa velutina, containing both direct and indirect interactions. Therefore, we now search the database for all lines containing *Vespa velutina*. This outcome is saved into a the file vespa_velutina_interactions.tsv by:
 ```shell  
   $ zgrep "Vespa velutina" interactions.tsv.gz >>vespa_velutina_interactions.tsv   
 ```
