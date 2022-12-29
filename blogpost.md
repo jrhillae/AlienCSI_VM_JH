@@ -89,8 +89,38 @@ cat secundary_interactions_targets.tsv| cut -f2,3,4,20,22,39,42,43,44,48,60,62 |
 
 ## Fine tuning of network within R
 
-## Intermetzo: taxonomic allignment with Nomer
+## Intermetzo: taxonomic alignment with Nomer
 
+First update and upgrade each package:
+```shell
+sudo apt update
+sudo apt upgrade
+```
+
+Install curl if not yet installed: 
+```shell
+sudo apt install curl
+```
+
+Download Nomer locally. Check for the most recent versions of Nomer (here)[https://github.com/globalbioticinteractions/nomer/releases] and adapt url-link below.:
+```shell
+curl -L https://github.com/globalbioticinteractions/nomer/releases/download/0.4.8/nomer.deb > nomer.deb
+```
+
+Install Nomer and its dependencies:
+```shell
+sudo apt install ./nomer.deb
+```
+
+Download taxonomic backbone of GBIF for Nomer locally. Check for the most recent versions of Nomer (here)[https://github.com/globalbioticinteractions/nomer/releases] and adapt url-link below.
+```shell
+curl -L https://github.com/globalbioticinteractions/nomer/releases/download/0.4.8/gbif_mapdb.zip > ~/.cache/nomer/gbif_mapdb.zip                  
+```
+
+Add tabb in front of each speciesname, a necessity for running Nomer, and lookup the GBIF taxonomic backbone for each species. Save outcome in all_species_network_gbif.tsv.
+```shell
+cat all_species_network.csv |sed "s/^/\t/g" | pv -l| nomer append gbif> all_species_network_gbif.tsv 
+```
 ## Finalizing network
 
 ## Network visualisation in Gephi
