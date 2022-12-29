@@ -101,5 +101,8 @@ How to refer to sources of Nomer?
 ```shell
 nomer properties| grep preston
 ```
-
+Which version of GBIF taxonomic backbone is applied by Nomer?
+```shell
+nomer properties| grep gbif
+```
 
