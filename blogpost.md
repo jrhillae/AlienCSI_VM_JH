@@ -17,7 +17,7 @@ You can create a new folder by:
 ```shell 
   $ mkdir /home/username/newfolder
 ```
-Turn this new folder into your working directory:
+Define this new folder as your working directory:
 ```shell 
   $ cd /home/username/newfolder
 ```
