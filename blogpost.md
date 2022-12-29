@@ -44,7 +44,7 @@ Before we continue it is important to highlight that an interaction always consi
  $ cat vespa_velutina_interactions.tsv| cut -f8 | sort | uniq > vespa_velutina_sources.tsv 
  $ cat vespa_velutina_interactions.tsv| cut -f48 | sort | uniq > vespa_velutina_targets.tsv 
 ```
-Manually remove the first row of the files in case it represents an empty line. Now we loop over each of these species and write out all interactions containing these species into an output file (secundary_interactions_sources.tsv and secundary_interactions_targets.tsv, respectively)
+Manually remove the first row of the files in case it represents an empty line. Now we loop over each of these species within these files and write out all interactions containing these species into an output file (secundary_interactions_sources.tsv and secundary_interactions_targets.tsv, respectively)
 
 ```shell
 $ while read line; do zgrep "$line" interactions.tsv.gz >>secundary_interactions_sources.tsv; done <vespa_velutina_sources.tsv
