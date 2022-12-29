@@ -24,7 +24,7 @@ Turn this new folder into your working directory:
 ## Data filtering from entire GloBi database 
 Now, go to the GloBI website and download [the entire GloBI database](https://zenodo.org/record/7348355/files/interactions.tsv.gz). The database of GloBI is available in [many formats](https://www.globalbioticinteractions.org/data). For the following, you are advised to download a stable (citable) version of the database in tsv format. Place the download into the working directory after downloading. 
 
-In this example, we are interested in creating a network for Vespa velutina, containing both direct and indirect interactions. Therefore, we now search the database for all lines containing *Vespa velutina*. This outcome is saved into a the file vespa_velutina_interactions.tsv by:
+In this example, we are interested in creating a network for _Vespa velutina_, containing both direct and indirect interactions. Therefore, we now search the database for all lines containing *Vespa velutina*. This outcome is saved into a the file vespa_velutina_interactions.tsv by:
 ```shell  
   $ zgrep "Vespa velutina" interactions.tsv.gz >>vespa_velutina_interactions.tsv   
 ```
@@ -39,6 +39,11 @@ Check the number of lines within vespa_velutina_interactions.tsv by:
   $ cat vespa_velutina_interactions.tsv | wc -l  
 ```
 Before we continue it is important to highlight that an interactions always consists out of a source species, an interaction type and a target species. In the file vespa_velutina_interactions.tsv, _Vespa velutina_ might occur both as source or target species. In the following we want to list all unique source and target species with which _Vespa velutina_ is interacting. To do this, we filter all unique species names from column 8 and 48 within the file vespa_velutina_interactions.tsv. Both column refer to the [mapped species name](https://www.globalbioticinteractions.org/process) of the source species and target species, respectively, within the interaction.
+
+```shell
+ $ cat vespa-velutina-interactions.tsv| cut -f8 | sort | uniq > vespa_velutina_sources.tsv 
+ $ cat vespa-velutina-interactions.tsv| cut -f48 | sort | uniq > vespa_velutina_targets.tsv 
+```
 
 ## Fine tuning of network within R
 
