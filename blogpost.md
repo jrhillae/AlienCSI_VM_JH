@@ -37,7 +37,7 @@ To obtain the direct interactions, we now search the database for all lines cont
 ```shell  
 zgrep "Vespa velutina" interactions.tsv.gz > vespa_velutina_interactions.tsv   
 ```
-Herein, zgrep allows searching within zipped files. As such, a file does not not need to be unpacked beforehand.
+Herein, zgrep allows searching within zipped files. As such, a file does not not need to be unpacked beforehand. In this example, we are lucky as Vespa velutina has no synonyms. In case your species of interest has many synonyms it is advisable to run an extra step in Nomer to obtain all possible id's for that species (see below, taxonomic alignment with Nomer).
 
 Explore the file vespa_velutina_interactions.tsv by printing its header within the terminal: 
  ```shell 
@@ -47,7 +47,7 @@ Check the number of lines within vespa_velutina_interactions.tsv by:
 ```shell
 cat vespa_velutina_interactions.tsv | wc -l  
 ```
-The file vespa_velutina_interactions.tsv contains all direct interactions of _Vespa velutina_ within the GloBI database. In case your species of interest has many synonyms it is advisable to run an extra step in which you obtain all possible id's for that species within the database by applying Nomer (see below). We clean this final file before importing in R by only saving the following columns and deleting any duplicate rows: 
+The file vespa_velutina_interactions.tsv contains all direct interactions of _Vespa velutina_ within the GloBI database. We clean this final file before importing in R by only saving the following columns and deleting any duplicate rows: 
 
   - column 2: taxonids of the source species
   - column 3: taxon name
