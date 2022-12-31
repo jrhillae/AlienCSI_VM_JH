@@ -47,7 +47,7 @@ Check the number of lines within vespa_velutina_interactions.tsv by:
 ```shell
 cat vespa_velutina_interactions.tsv | wc -l  
 ```
-The file vespa_velutina_interactions.tsv contains all direct interactions of _Vespa velutina_ within the GloBI database. Fortunatly, _Vespa velutina_ doesn't have any synonyms, so we can be fairly sure we are not missing anything that we should have included. We clean this final file before importing in R by only saving the following columns and deleting any duplicate rows: 
+The file vespa_velutina_interactions.tsv contains all direct interactions of _Vespa velutina_ within the GloBI database. In case your species of interest has many synonyms it is advisable to run an extra step in which you obtain all possible id's for that species within the database by applying Nomer (see below). We clean this final file before importing in R by only saving the following columns and deleting any duplicate rows: 
 
   - column 2: taxonids of the source species
   - column 3: taxon name
