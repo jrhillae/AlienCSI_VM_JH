@@ -140,12 +140,12 @@ raw_interactions <- rbind(interactions_sources,
                           primary_interactions)
 ```
 
-Check the type of interactions occuring in your dataset
+Check the type of interactions occuring in your dataset.
 ```r
 unique(raw_interactions$interactionType)
 ```
 
-Select those interactions that are of interest
+Define the interactions that are of interest.
 ```r
 interactions_to_include <- c("hasHost",
                              "eats",
@@ -164,19 +164,18 @@ interactions_to_include <- c("hasHost",
                              "guestOf",
                              "kills",
                              "ectoParasitoid")
-                             
-interactionsCleaned <- raw_interactions %>%
-filter(interactionType %in% interactions_to_include)
 ```
 
 Now, further process the dataframe by:
-  - only select rows in which species name of source and target are defined (notice we hereby only include taxons at species level in the network)
- - only select particular columns 
+  - select interactions that are of interest
+  - select rows in which species name of source and target are defined (notice we hereby only include taxons at species level in the network)
+ - select particular columns 
  - replace any interactiontype or kingdom with a terminology of choice
- - only select unique rows
+ - remove any duplicate rows
  
  ```r
-interactionsCleaned <- raw_interactions %>%   
+interactionsCleaned <- raw_interactions %>% 
+  filter(interactionType %in% interactions_to_include)%>%
   filter(sourceSpeciesName!="")%>%
   filter(targetSpeciesName!="")%>%
   select(sourceSpeciesName, 
