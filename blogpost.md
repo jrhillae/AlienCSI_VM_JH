@@ -168,6 +168,30 @@ interactions_to_include <- c("hasHost",
 interactionsCleaned <- raw_interactions %>%
 filter(interactionType %in% interactions_to_include)
 ```
+
+Now, further process the dataframe by:
+  - only select rows in which species name of source and target are defined (notice we hereby only include taxons at species level in the network)
+ - only select particular columns 
+ - replace any interactiontype or kingdom with a terminology of choice
+ - only select unique rows
+ 
+ ```r
+interactionsCleaned <- raw_interactions %>%   
+  filter(sourceSpeciesName!="")%>%
+  filter(targetSpeciesName!="")%>%
+  select(sourceSpeciesName, 
+         sourcePhylum,
+         sourceKingdom,
+         interactionType,
+         targetSpeciesName,
+         targetPhylum,
+         targetKingdom)%>%
+  mutate(interactionType = str_replace(interactionType, "kills", "preyson"))%>%
+  mutate(sourcePhylum=str_replace(sourceKingdom, 'Metazoa', 'Animalia'))%>%
+  mutate(targetPhylum=str_replace(targetKingdom, 'Metazoa', 'Animalia'))%>%
+  distinct()
+ ```
+
 ## Intermetzo: taxonomic alignment with Nomer
 
 First update and upgrade the repository:
