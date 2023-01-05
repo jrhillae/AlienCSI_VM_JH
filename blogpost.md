@@ -98,6 +98,32 @@ library(tidyverse)
 library(purrr)
 ```
 
+```r
+header <- c('sourceTaxonIDs',
+            'sourceTaxonName',
+            'sourceTaxonLevel',
+            'sourceSpeciesName',
+            'sourcePhylum',
+            'sourceKingdom',
+            'interactionType',
+            'targetTaxonIDs',
+            'targetTaxonName',
+            'targetTaxonLevel', 
+            'targetSpeciesName',
+            'targetPhylum',
+            'targetKingdom')
+
+#reading in GLOBI output
+interactions_sources <- read.csv("secundary_interactions_sources_light.tsv", sep = "\t",quote="", header=FALSE, col.names=header)
+
+interactions_targets <- read.csv("secundary_interactions_targets_light.tsv", sep = "\t", quote="", header=FALSE, col.names=header) 
+ 
+primary_interactions <- read.csv("vespa_velutina_interactions_light.tsv", sep = "\t", quote="", header=FALSE, col.names=header) 
+
+raw_interactions <- rbind(interactions_sources,
+                          interactions_targets,
+                          primary_interactions)
+```
 
 ## Intermetzo: taxonomic alignment with Nomer
 
