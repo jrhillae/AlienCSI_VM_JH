@@ -169,7 +169,7 @@ interactions_to_include <- c("hasHost",
 Now, further process the dataframe by:
  - selecting interactions that are of interest
  - selecting rows in which species name of source and target are defined (notice we hereby only include taxons at species level in the network)
- - selecting particular columns 
+ - selecting particular columns
  - replacing any interactiontype or kingdom with a terminology of choice
  - removing any duplicate rows
  
@@ -206,14 +206,16 @@ all_species <- sort(
 
 
 ## Intermetzo: taxonomic alignment with Nomer
+In order to create the Belgian network of _Vespa velutina_, we will only incorporate species that have been observed in Belgium since 2000 according to GBIF. To do this, we use [nomer](https://github.com/globalbioticinteractions/nomer) to obtain the GBIF specieskey of each species and then link this to taxonKeys mentioned within the Belgian occurence cube. More information about the Belgian occurence cube at species level can be found [here](https://zenodo.org/record/7389450#.Y7c0QHbMJPY). There are multiple ways to obtain the GBIF taxonKey of a list of species (such as the function name_backbone from [rgbif](https://cran.r-project.org/web/packages/rgbif/index.html)) but for increased speed I here demonstrate how to apply nomer.
 
-First update and upgrade the repository:
+Nomer is available as a linux package. So we return to the Linux command line to perform the following steps.
+First update and upgrade the repository before you install nomer:
 ```shell
 sudo apt update
 sudo apt upgrade
 ```
 
-Install curl if not yet installed: 
+Install curl if not yet installed. This package allows you to 
 ```shell
 sudo apt install curl
 ```
