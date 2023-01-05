@@ -84,7 +84,7 @@ Again, we clean up both output files by only selecting particular columns (see a
 
 ```shell
 cat secundary_interactions_sources.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr > secundary_interactions_sources_light.tsv
-cat secundary_interactions_targets.tsv| cut -f2,3,4,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr >  secundary_interactions_targets_light.tsv
+cat secundary_interactions_targets.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr >  secundary_interactions_targets_light.tsv
 ```
 
 ## Fine tuning of network within R
