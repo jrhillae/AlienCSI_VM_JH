@@ -89,7 +89,7 @@ cat secundary_interactions_targets.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62
 
 ## Fine tuning of network within R
 
-Now, we will finetune the network in R.
+Now, we will finetune these interactions into a network in R.
 
 First, load all necessary libraries.
 ```r
@@ -191,7 +191,7 @@ interactionsCleaned <- raw_interactions %>%
   distinct()
  ```
  
-Which species occur in this network?
+Which species occur in this network? Export these within the file all_species_network.csv.
 ```r
 all_species <- sort(
             unique(
