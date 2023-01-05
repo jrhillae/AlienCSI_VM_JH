@@ -89,6 +89,16 @@ cat secundary_interactions_targets.tsv| cut -f2,3,4,20,22,39,42,43,44,48,60,62 |
 
 ## Fine tuning of network within R
 
+```r
+library(dplyr)
+library(stringr)
+library(tidyr)
+library(rglobi)
+library(tidyverse)
+library(purrr)
+```
+
+
 ## Intermetzo: taxonomic alignment with Nomer
 
 First update and upgrade the repository:
