@@ -167,11 +167,11 @@ interactions_to_include <- c("hasHost",
 ```
 
 Now, further process the dataframe by:
-  - select interactions that are of interest
-  - select rows in which species name of source and target are defined (notice we hereby only include taxons at species level in the network)
- - select particular columns 
- - replace any interactiontype or kingdom with a terminology of choice
- - remove any duplicate rows
+ - selecting interactions that are of interest
+ - selecting rows in which species name of source and target are defined (notice we hereby only include taxons at species level in the network)
+ - selecting particular columns 
+ - replacing any interactiontype or kingdom with a terminology of choice
+ - removing any duplicate rows
  
  ```r
 interactionsCleaned <- raw_interactions %>% 
