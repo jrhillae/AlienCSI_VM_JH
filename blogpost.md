@@ -190,6 +190,20 @@ interactionsCleaned <- raw_interactions %>%
   mutate(targetPhylum=str_replace(targetKingdom, 'Metazoa', 'Animalia'))%>%
   distinct()
  ```
+ 
+Which species occur in this network?
+```r
+all_species <- sort(
+            unique(
+              c(interactionsCleaned$sourceSpeciesName,
+                interactionsCleaned$targetSpeciesName)
+              )
+            )
+            
+ write.csv(app_species, 'all_species_network.csv')
+ ```
+
+
 
 ## Intermetzo: taxonomic alignment with Nomer
 
