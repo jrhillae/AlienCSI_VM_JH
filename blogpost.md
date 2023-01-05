@@ -203,7 +203,8 @@ all_species <- sort(
  write.table(all_species, 
             'all_species_network.csv',
              row.names=FALSE,
-             col.names=FALSE)
+             col.names=FALSE,
+             quote=FALSE)
  ```
 
 
@@ -238,7 +239,7 @@ Download taxonomic backbone of GBIF for nomer locally. Check for the most recent
 curl -L https://github.com/globalbioticinteractions/nomer/releases/download/0.4.8/gbif_mapdb.zip > ~/.cache/nomer/gbif_mapdb.zip                  
 ```
 Now, copy the file all_species_network.csv into your working repository (see explanation above on how to define your working repository in Linux).
-Add a tab in front of each species name, a necessity for running Nomer, and lookup the GBIF taxonomic backbone for each species. Save outcome in all_species_network_gbif.tsv.
+Add a tab in front of each species name, a necessity for running nomer, and lookup the GBIF taxonomic backbone for each species. Save outcome in all_species_network_gbif.tsv.
 ```shell
 cat all_species_network.csv |sed "s/^/\t/g" | pv -l| nomer append gbif> all_species_network_gbif.tsv 
 ```
@@ -248,11 +249,11 @@ cat all_species_network.csv |sed "s/^/\t/g" | pv -l| nomer append gbif> all_spec
 
 ## How to correctly cite your work?
 
-On what is Nomer based?
+On what is nomer based?
 ```shell
 nomer properties| grep preston
 ```
-Which version of GBIF taxonomic backbone is applied by Nomer?
+Which version of GBIF taxonomic backbone is applied by nomer?
 ```shell
 nomer properties| grep gbif
 ```
