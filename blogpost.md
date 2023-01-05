@@ -89,6 +89,9 @@ cat secundary_interactions_targets.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62
 
 ## Fine tuning of network within R
 
+Now, we will finetune the network in R.
+
+First, load all necessary libraries.
 ```r
 library(dplyr)
 library(stringr)
@@ -97,7 +100,7 @@ library(rglobi)
 library(tidyverse)
 library(purrr)
 ```
-
+Read in all three files containing interactions (primary interactions and secondary interactionas of sources and targets) and bind these together in one dataframe.
 ```r
 header <- c('sourceTaxonIDs',
             'sourceTaxonName',
@@ -114,11 +117,23 @@ header <- c('sourceTaxonIDs',
             'targetKingdom')
 
 #reading in GLOBI output
-interactions_sources <- read.csv("secundary_interactions_sources_light.tsv", sep = "\t",quote="", header=FALSE, col.names=header)
+interactions_sources <- read.csv("secundary_interactions_sources_light.tsv", 
+  sep = "\t",
+  quote="",
+  header=FALSE,
+  col.names=header)
 
-interactions_targets <- read.csv("secundary_interactions_targets_light.tsv", sep = "\t", quote="", header=FALSE, col.names=header) 
+interactions_targets <- read.csv("secundary_interactions_targets_light.tsv", 
+  sep = "\t",
+  quote="",
+  header=FALSE,
+  col.names=header) 
  
-primary_interactions <- read.csv("vespa_velutina_interactions_light.tsv", sep = "\t", quote="", header=FALSE, col.names=header) 
+primary_interactions <- read.csv("vespa_velutina_interactions_light.tsv",
+  sep = "\t",
+  quote="",
+  header=FALSE,
+  col.names=header) 
 
 raw_interactions <- rbind(interactions_sources,
                           interactions_targets,
