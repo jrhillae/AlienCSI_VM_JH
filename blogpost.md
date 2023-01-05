@@ -100,7 +100,7 @@ library(rglobi)
 library(tidyverse)
 library(purrr)
 ```
-Read in all three files containing interactions (primary interactions and secondary interactionas of sources and targets) and bind these together in one dataframe.
+Read in all three files containing interactions (primary interactions and secondary interactions of sources and targets) and bind these together in one dataframe.
 ```r
 header <- c('sourceTaxonIDs',
             'sourceTaxonName',
@@ -140,6 +140,34 @@ raw_interactions <- rbind(interactions_sources,
                           primary_interactions)
 ```
 
+Check the type of interactions occuring in your dataset
+```r
+unique(raw_interactions$interactionType)
+```
+
+Select those interactions that are of interest
+```r
+interactions_to_include <- c("hasHost",
+                             "eats",
+                             "pathogenOf",
+                             "interactsWith",
+                             "parasiteOf",
+                             "endoparasiteOf",       
+                             "ectoparasiteOf",
+                             "visitsFlowersOf",
+                             "preysOn",
+                             "visits",
+                             "endoparasitoidOf",
+                             "mutualistOf",
+                             "pollinates",
+                             "parasitoidOf",
+                             "guestOf",
+                             "kills",
+                             "ectoParasitoid")
+                             
+interactionsCleaned <- raw_interactions %>%
+filter(interactionType %in% interactions_to_include)
+```
 ## Intermetzo: taxonomic alignment with Nomer
 
 First update and upgrade the repository:
