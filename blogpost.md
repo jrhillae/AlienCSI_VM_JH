@@ -186,8 +186,8 @@ interactionsCleaned <- raw_interactions %>%
          targetPhylum,
          targetKingdom)%>%
   mutate(interactionType = str_replace(interactionType, "kills", "preyson"))%>%
-  mutate(sourcePhylum=str_replace(sourceKingdom, 'Metazoa', 'Animalia'))%>%
-  mutate(targetPhylum=str_replace(targetKingdom, 'Metazoa', 'Animalia'))%>%
+  mutate(sourceKingdom=str_replace(sourceKingdom, 'Metazoa', 'Animalia'))%>%
+  mutate(targetKingdom=str_replace(targetKingdom, 'Metazoa', 'Animalia'))%>%
   distinct()
  ```
  
