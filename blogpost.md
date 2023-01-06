@@ -224,7 +224,7 @@ Install curl if not yet installed. This package allows you to download nomer fro
 sudo apt install curl
 ```
 
-Download Nomer locally. Check for the most recent versions of Nomer [here](https://github.com/globalbioticinteractions/nomer/releases) and adapt url-link below.:
+Download Nomer locally. Check for the most recent versions of nomer [here](https://github.com/globalbioticinteractions/nomer/releases) and adapt url-link below.:
 ```shell
 curl -L https://github.com/globalbioticinteractions/nomer/releases/download/0.4.8/nomer.deb > nomer.deb
 ```
@@ -241,7 +241,7 @@ curl -L https://github.com/globalbioticinteractions/nomer/releases/download/0.4.
 Now, copy the file all_species_network.csv into your working repository (see explanation above on how to define your working repository in Linux).
 Add a tab in front of each species name, a necessity for running nomer, and lookup the GBIF taxonomic backbone for each species. Save outcome in all_species_network_gbif.tsv.
 ```shell
-cat all_species_network.csv |sed "s/^/\t/g" | pv -l| nomer append gbif> all_species_network_gbif.tsv 
+cat all_species_network.csv |sed "s/^/\t/g" | nomer append gbif> all_species_network_gbif.tsv 
 ```
 ## Finalizing network
 
