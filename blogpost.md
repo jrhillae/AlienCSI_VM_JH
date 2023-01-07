@@ -247,7 +247,7 @@ cat all_species_network.csv |sed "s/^/\t/g" | nomer append gbif> all_species_net
 
 ## Network visualisation in Gephi
 
-There are many options to visualise your network but Gephi is certainly a good candidate. You can find more information [here](https://gephi.org/users/tutorial-visualization/). When we visualise the network obtained above we obtain the following figure:
+There are many options to visualise your network but Gephi is certainly a good candidate. You can find more information on how to create networks in Gephi [here](https://gephi.org/users/tutorial-visualization/). When we visualise the network obtained above we get the following figure:
 
 
 ![Untitled](https://user-images.githubusercontent.com/35692395/211156719-cf76de37-ca23-491b-bbb8-ab64e194be24.png)
