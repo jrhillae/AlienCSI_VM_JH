@@ -286,7 +286,7 @@ speciesNetworkCubeBE <- speciesNetwork %>% filter(
   taxonKey%in%cube_BE$speciesKey)
 ```
 
-What are the primary interactions of _Vespa velutina_?
+What are the primary interactions of _Vespa velutina_? To answer this question we look up all interactions having _Vespa velutina_ as source and a species within the Belgian cube as target (PartI) and all interactions having a species within the cube as source and _Vespa velutina_ as target (PartII). Together, these represtent the primary interactions of _Vespa velutina_ in Belgium, according to GloBI and the Belgian species cube.
 ```r
 primaryInteractionsPartI <- interactionsCleaned %>%
   filter(sourceSpeciesName == "Vespa velutina")%>%
@@ -301,7 +301,7 @@ What are the primary species?
 primary_species<- unique(c(primaryInteractionsPartI$targetSpeciesName,
                            primaryInteractionsPartII$sourceSpeciesName))
 ``` 
-What are the secondary interactions of _Vespa velutina_?
+What are the secondary interactions of _Vespa velutina_? To answer this question we look up all interactions having a primary species as source and a species within the Belgian cube as target (PartI) and all interactions having a species within the cube as source and a primary species as target (PartII). Together, these represtent the secondary interactions of _Vespa velutina_ in Belgium, according to GloBI and the Belgian species cube.
 ```r
 secondaryInteractionsPartI <- interactionsCleaned %>%
   filter(sourceSpeciesName%in%primary_species)%>%
@@ -311,7 +311,7 @@ secondaryInteractionsPartII<- interactionsCleaned %>%
   filter(sourceSpeciesName%in%speciesNetworkCubeBE$speciesName)%>%
   filter(targetSpeciesName%in%primary_species)
 ``` 
-What are the secondary species? Primary species are deleted from this list.
+What are the secondary species? Note that species can be primary and secondary, therefore primary species are deleted from this list.
 ```r
 secondary_species<- unique(c(secondaryInteractionsPartI$targetSpeciesName,
                            secondaryInteractionsPartII$sourceSpeciesName))
