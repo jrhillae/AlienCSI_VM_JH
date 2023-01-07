@@ -286,7 +286,7 @@ speciesNetworkCubeBE <- speciesNetwork %>% filter(
   taxonKey%in%cube_BE$speciesKey)
 ```
 
-What are the primary interactions from Vespa velutina?
+What are the primary interactions of _Vespa velutina_?
 ```r
 primaryInteractionsPartI <- interactionsCleaned %>%
   filter(sourceSpeciesName == "Vespa velutina")%>%
@@ -301,7 +301,7 @@ What are the primary species?
 primary_species<- unique(c(primaryInteractionsPartI$targetSpeciesName,
                            primaryInteractionsPartII$sourceSpeciesName))
 ``` 
-What are the secondary interactions?
+What are the secondary interactions of _Vespa velutina_?
 ```r
 secondaryInteractionsPartI <- interactionsCleaned %>%
   filter(sourceSpeciesName%in%primary_species)%>%
