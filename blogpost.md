@@ -263,8 +263,8 @@ It is important to list the names that are not found by Nomer and check for poss
 not_found_nomer <- all_species_network_gbif %>% filter(relation=='NONE')	
 write.csv(not_found_nomer, 'not_found_nomer.csv')
 ```
-
 To create the network, we are only interested in the taxonKeys per species returned by Nomer. We separate the column taxonKey into two new columns: taxonomy and taxonKey based on the separator ':'. As such the value 'GBIF:1311477' is separated into 'GBIF' and '1311477'. We only maintain distinct rows and delete all names that are not recognized by Nomer.
+
 ```r
 speciesNetwork <- all_species_network_gbif %>%
   select(speciesName, taxonKey)%>%
@@ -272,6 +272,64 @@ speciesNetwork <- all_species_network_gbif %>%
   distinct%>%
   filter(!is.na(taxonKey))
 ```
+Import the [species cube for Belgium](https://zenodo.org/record/7389450#.Y7c0QHbMJPY) after downloading it into your R working directory. Also, we define the year from which observations in the cube are considered relevant.
+
+```r
+year <- 2000
+
+cube_BE <- read_csv('be_species_cube.csv')%>%
+  filter(year>=2000)
+```
+Which species from the network occur in the Belgian species cube?
+```r
+speciesNetworkCubeBE <- speciesNetwork %>% filter(
+  taxonKey%in%cube_BE$speciesKey)
+```
+
+What are the primary interactions from Vespa velutina?
+```r
+primaryInteractionsPartI <- interactionsCleaned %>%
+  filter(sourceSpeciesName == "Vespa velutina")%>%
+  filter(targetSpeciesName%in%speciesNetworkCubeBE$speciesName)
+
+primaryInteractionsPartII<- interactionsCleaned %>%
+  filter(sourceSpeciesName%in%speciesNetworkCubeBE$speciesName)%>%
+  filter(targetSpeciesName == "Vespa velutina")
+```  
+What are the primary species?
+```r
+primary_species<- unique(c(primaryInteractionsPartI$targetSpeciesName,
+                           primaryInteractionsPartII$sourceSpeciesName))
+``` 
+What are the secondary interactions?
+```r
+secondaryInteractionsPartI <- interactionsCleaned %>%
+  filter(sourceSpeciesName%in%primary_species)%>%
+  filter(targetSpeciesName%in%speciesNetworkCubeBE$speciesName)
+
+secondaryInteractionsPartII<- interactionsCleaned %>%
+  filter(sourceSpeciesName%in%speciesNetworkCubeBE$speciesName)%>%
+  filter(targetSpeciesName%in%primary_species)
+``` 
+What are the secondary species? Primary species are deleted from this list.
+```r
+secondary_species<- unique(c(secondaryInteractionsPartI$targetSpeciesName,
+                           secondaryInteractionsPartII$sourceSpeciesName))
+
+secondary_species <- secondary_species[!(secondary_species%in%primary_species)]
+```
+Bind all interactions together and export your network.
+```r
+PrimSecInteractions <- rbind(primaryInteractionsPartI,
+                             primaryInteractionsPartII,
+                             secondaryInteractionsPartI,
+                             secondaryInteractionsPartII)%>%
+  select(sourceSpeciesName, interactionType, targetSpeciesName)%>%
+  rename(source=sourceSpeciesName, interaction=interactionType, target=targetSpeciesName)
+  distinct()
+  
+ write.csv(PrimSecInteractions, 'edges.csv', row.names=FALSE)
+ ```
 ## Network visualisation in Gephi
 
 There are many options to visualise your network but Gephi is certainly a good candidate. You can find more information on how to create networks in Gephi [here](https://gephi.org/users/tutorial-visualization/). When we visualise the network obtained above we get the following figure:
