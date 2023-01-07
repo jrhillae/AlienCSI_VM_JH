@@ -245,6 +245,33 @@ cat all_species_network.csv |sed "s/^/\t/g" | nomer append gbif> all_species_net
 ```
 ## Finalizing network
 
+
+Now we open the output from Nomer in R:
+```r
+headerNames <- c('V1','speciesName','relation','taxonKey', 'GBIFspeciesName', 'author',
+'taxonLevel','V8','taxonomy','GBIFtaxonomy','taxonomyTaxonlevel', 'V12', 'url')
+
+all_species_network_gbif <- read.csv("all_species_network_gbif.tsv",
+                                     sep = "\t",
+                                     quote="",
+                                     header=FALSE,
+                                     col.names = headerNames)
+```
+
+It is important to list the names that are not found by Nomer and check for possible errors.
+```r
+not_found_nomer <- all_species_network_gbif %>% filter(relation=='NONE')	
+write.csv(not_found_nomer, 'not_found_nomer.csv')
+```
+
+To create the network, we are only interested in the taxonKeys per species returned by Nomer. We separate the column taxonKey into two new columns: taxonomy and taxonKey based on the separator ':'. As such the value 'GBIF:1311477' is separated into 'GBIF' and '1311477'. We only maintain distinct rows and delete all names that are not recognized by Nomer.
+```r
+speciesNetwork <- all_species_network_gbif %>%
+  select(speciesName, taxonKey)%>%
+  separate(taxonKey, c('taxonomy', 'taxonKey'),sep=":")%>%
+  distinct%>%
+  filter(!is.na(taxonKey))
+```
 ## Network visualisation in Gephi
 
 There are many options to visualise your network but Gephi is certainly a good candidate. You can find more information on how to create networks in Gephi [here](https://gephi.org/users/tutorial-visualization/). When we visualise the network obtained above we get the following figure:
