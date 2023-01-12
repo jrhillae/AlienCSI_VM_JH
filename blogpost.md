@@ -77,14 +77,14 @@ cat vespa_velutina_interactions.tsv| cut -f48 | sort | uniq > vespa_velutina_tar
 Manually remove the first row of the files in case it represents an empty line. The indirect interaction of _Vespa velutina_ are selected from GloBI by looping over each of these species within both files and writing out all interactions containing these species into an output file (secundary_interactions_sources.tsv and secundary_interactions_targets.tsv, respectively)
 
 ```shell
-while read line; do zgrep "$line" interactions.tsv.gz >> secundary_interactions_sources.tsv; done <vespa_velutina_sources.tsv
-while read line; do zgrep "$line" interactions.tsv.gz >> secundary_interactions_targets.tsv; done <vespa_velutina_targets.tsv
+while read line; do zgrep "$line" interactions.tsv.gz >> secondary_interactions_sources.tsv; done <vespa_velutina_sources.tsv
+while read line; do zgrep "$line" interactions.tsv.gz >> secondary_interactions_targets.tsv; done <vespa_velutina_targets.tsv
 ```
 Again, we clean up both output files by only selecting particular columns (see above) and deleting duplicate rows.
 
 ```shell
-cat secundary_interactions_sources.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr > secundary_interactions_sources_light.tsv
-cat secundary_interactions_targets.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr >  secundary_interactions_targets_light.tsv
+cat secondary_interactions_sources.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr > secondary_interactions_sources_light.tsv
+cat secondary_interactions_targets.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr >  secondary_interactions_targets_light.tsv
 ```
 
 ## Fine tuning of network within R
@@ -117,13 +117,13 @@ header <- c('sourceTaxonIDs',
             'targetKingdom')
 
 #reading in GLOBI output
-interactions_sources <- read.csv("secundary_interactions_sources_light.tsv", 
+interactions_sources <- read.csv("secondary_interactions_sources_light.tsv", 
   sep = "\t",
   quote="",
   header=FALSE,
   col.names=header)
 
-interactions_targets <- read.csv("secundary_interactions_targets_light.tsv", 
+interactions_targets <- read.csv("secondary_interactions_targets_light.tsv", 
   sep = "\t",
   quote="",
   header=FALSE,
