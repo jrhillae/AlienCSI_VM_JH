@@ -1,0 +1,251 @@
+---
+title: "Untitled"
+author: "jasmijn_hillaert"
+date: "2022-12-20"
+output: html_document
+---
+Make sure your environment is empty.
+```{r}
+#empty environment
+rm(list=ls())
+```
+
+
+Upload the following libraries.
+```{r}
+library(dplyr)
+library(stringr)
+library(tidyr)
+library(rglobi)
+library(tidyverse)
+library(purrr)
+```
+
+```{r setup, include=FALSE}
+
+header <- c('sourceTaxonIDs',
+            'sourceTaxonName',
+            'sourceTaxonLevel',
+            'sourceSpeciesName',
+            'sourcePhylum',
+            'sourceKingdom',
+            'interactionType',
+            'targetTaxonIDs',
+            'targetTaxonName',
+            'targetTaxonLevel', 
+            'targetSpeciesName',
+            'targetPhylum',
+            'targetKingdom')
+
+#reading in GLOBI output
+interactions_sources <- read.csv("secundary_interactions_sources_light.tsv", sep = "\t",quote="", header=FALSE, col.names=header)
+
+interactions_targets <- read.csv("secundary_interactions_targets_light.tsv", sep = "\t", quote="", header=FALSE, col.names=header) 
+ 
+primary_interactions <- read.csv("vespa_velutina_interactions_light.tsv", sep = "\t", quote="", header=FALSE, col.names=header) 
+
+raw_interactions <- rbind(interactions_sources,
+                          interactions_targets,
+                          primary_interactions)
+
+#todo: delete refute interactions
+```
+
+
+```{r}
+#which interactions are occurring in dataset?
+unique(raw_interactions$interactionType)
+
+#only select relevant interactions
+interactions_to_include <- c("hasHost",
+                             "eats",
+                             "pathogenOf",
+                             "parasiteOf",
+                             "endoparasiteOf",       
+                             "ectoparasiteOf",
+                             "visitsFlowersOf",
+                             "preysOn",
+                             "visits",
+                             "endoparasitoidOf",
+                             "mutualistOf",
+                             "pollinates",
+                             "parasitoidOf",
+                             "guestOf",
+                             "kills",
+                             "ectoParasitoid")
+
+interactionsCleaned <- raw_interactions %>% filter(interactionType %in% interactions_to_include) %>% 
+  mutate(interactionType = str_replace(interactionType, "kills", "preyson"))%>%
+  filter(sourceSpeciesName!="")%>%
+  filter(targetSpeciesName!="")%>%
+  select(sourceSpeciesName, 
+         sourcePhylum,
+         sourceKingdom,
+         interactionType,
+         targetSpeciesName,
+         targetPhylum,
+         targetKingdom)%>%
+  mutate(sourceKingdom=str_replace(sourceKingdom, 'Metazoa', 'Animalia'))%>%
+  mutate(targetKingdom=str_replace(targetKingdom, 'Metazoa', 'Animalia'))%>%
+  distinct()
+  
+
+```
+
+```{r}
+#calculate total number of unique species in network
+all_species <- sort(
+            unique(
+              c(interactionsCleaned$sourceSpeciesName,
+                interactionsCleaned$targetSpeciesName)
+              )
+            )
+
+species_sources <- interactionsCleaned%>%
+                            select(sourceSpeciesName, sourcePhylum, sourceKingdom)%>%
+                            rename(speciesName= sourceSpeciesName, Phylum=sourcePhylum, Kingdom=sourceKingdom)
+
+species_targets <- interactionsCleaned%>%
+                            select(targetSpeciesName, targetPhylum, targetKingdom)%>%
+                            rename(speciesName= targetSpeciesName, Phylum=targetPhylum, Kingdom=targetKingdom)
+
+all_species_info <- rbind(species_sources, species_targets)%>% distinct()
+
+write.table(all_species, 'all_species_network.csv',
+          row.names=FALSE, col.names=FALSE, quote=FALSE)
+#Find accepted name, usageKey and kingdom per species and add to dataframe
+```
+
+```{r}
+#check output from Nomer
+
+headerNames <- c('V1','speciesName','relation','taxonKey', 'GBIFspeciesName', 'author',
+'taxonLevel','V8','taxonomy','GBIFtaxonomy','taxonomyTaxonlevel', 'V12', 'url')
+
+all_species_network_gbif <- read.csv("all_species_network_gbif.tsv",
+                                     sep = "\t",
+                                     quote="",
+                                     header=FALSE,
+                                     col.names = headerNames)
+
+#to check further in the future
+not_found_nomer <- all_species_network_gbif %>% filter(relation=='NONE')
+	
+write.csv(not_found_nomer, 'not_found_nomer.csv')
+
+```
+
+```{r}
+speciesNetwork <- all_species_network_gbif %>%
+  select(speciesName, taxonKey)%>%
+  separate(taxonKey, c('taxonomy', 'taxonKey'),sep=":")%>%
+  distinct%>%
+  filter(!is.na(taxonKey))
+
+```
+
+
+
+```{r}
+#import the species cube after downloading it into working directory
+
+#determine year after which observations are considered relevant
+
+year <- 2000
+
+cube_BE <- read_csv('be_species_cube.csv')%>%
+  filter(year>=2000)
+
+#info_BE <- read.csv('be_species_info.csv')
+```
+```{r}
+#Which species from the network occur in the cube?
+speciesNetworkCubeBE <- speciesNetwork %>% filter(
+  taxonKey%in%cube_BE$speciesKey)
+
+```
+
+
+```{r}
+all_species_info <- all_species_info %>%
+  filter(speciesName%in%speciesNetworkCubeBE$speciesName)
+```
+
+```{r}
+#What are the primary interactions?
+primaryInteractionsPartI <- interactionsCleaned %>%
+  filter(sourceSpeciesName == "Vespa velutina")%>%
+  filter(targetSpeciesName%in%speciesNetworkCubeBE$speciesName)
+
+primaryInteractionsPartII<- interactionsCleaned %>%
+  filter(sourceSpeciesName%in%speciesNetworkCubeBE$speciesName)%>%
+  filter(targetSpeciesName == "Vespa velutina")
+  
+#What are the primary species?
+primary_species<- unique(c(primaryInteractionsPartI$targetSpeciesName,
+                           primaryInteractionsPartII$sourceSpeciesName))
+  
+```
+
+```{r}
+#What are the secondary interactions?
+secondaryInteractionsPartI <- interactionsCleaned %>%
+  filter(sourceSpeciesName%in%primary_species)%>%
+  filter(targetSpeciesName%in%speciesNetworkCubeBE$speciesName)
+
+secondaryInteractionsPartII<- interactionsCleaned %>%
+  filter(sourceSpeciesName%in%speciesNetworkCubeBE$speciesName)%>%
+  filter(targetSpeciesName%in%primary_species)
+
+secondary_species<- unique(c(secondaryInteractionsPartI$targetSpeciesName,
+                           secondaryInteractionsPartII$sourceSpeciesName))
+
+secondary_species <- secondary_species[!(secondary_species%in%primary_species)]
+
+```
+
+```{r}
+#binding together and exporting
+
+primaryInteractions <- rbind(primaryInteractionsPartI,
+                             primaryInteractionsPartII)%>%
+  select(sourceSpeciesName, interactionType, targetSpeciesName)%>%
+  distinct()
+
+write.csv(primaryInteractions, 'primary_Interactions.csv',row.names=FALSE)
+write.csv(primary_species, 'primary_species.csv', row.names=FALSE)
+
+PrimSecInteractions <- rbind(primaryInteractionsPartI,
+                             primaryInteractionsPartII,
+                             secondaryInteractionsPartI,
+                             secondaryInteractionsPartII)%>%
+  select(sourceSpeciesName, interactionType, targetSpeciesName)%>%
+  rename(source=sourceSpeciesName, interaction=interactionType, target=targetSpeciesName)
+  distinct()
+
+
+PrimSecSpecies <- c('Vespa velutina',
+                    primary_species,
+                    secondary_species)
+
+all_species_info <- all_species_info%>%
+  filter(speciesName%in% PrimSecSpecies)
+write.csv(PrimSecInteractions, 'edges.csv', row.names=FALSE)
+write.csv(all_species_info, 'nodes.csv', row.names=FALSE)
+write.csv(PrimSecSpecies, 'all_species.csv')
+```
+
+```{r}
+#read_csv
+#read in normalized.csv # threatened species
+#read in primary species
+
+#define primary_threatened species
+
+primary_threatened <- normalized_primary_species%>%
+  filter(key%in%normalized$key)
+all_species_threatened <- normalized_all_species_VV%>%
+  filter(key%in%normalized$key)
+write.csv(all_species_threatened, 'all_species_threatened.csv')
+```
+

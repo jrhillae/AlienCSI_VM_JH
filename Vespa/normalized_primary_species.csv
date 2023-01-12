@@ -1,0 +1,137 @@
+occurrenceId;verbatimScientificName;scientificName;key;matchType;confidence;status;rank;kingdom;phylum;class;order;family;genus;species;canonicalName;authorship
+;Apis mellifera;Apis mellifera Linnaeus, 1758;1341976;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Hymenoptera;Apidae;Apis;Apis mellifera;Apis mellifera;Linnaeus, 1758
+;Vespula vulgaris;Vespula vulgaris (Linnaeus, 1758);1311671;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Hymenoptera;Vespidae;Vespula;Vespula vulgaris;Vespula vulgaris;(Linnaeus, 1758) 
+;Vespula germanica;Vespula germanica (Fabricius, 1793);1311649;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Hymenoptera;Vespidae;Vespula;Vespula germanica;Vespula germanica;(Fabricius, 1793) 
+;Hedera helix;Hedera helix L.;8351737;EXACT;97;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Apiales;Araliaceae;Hedera;Hedera helix;Hedera helix;L.
+;Pollenia rudis;Pollenia rudis (Fabricius, 1794);1503644;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Polleniidae;Pollenia;Pollenia rudis;Pollenia rudis;(Fabricius, 1794) 
+;Eristalis pertinax;Eristalis pertinax (Scopoli, 1763);1541116;EXACT;98;SYNONYM;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Eoseristalis;Eoseristalis pertinax;Eristalis pertinax;(Scopoli, 1763) 
+;Eristalis tenax;Eristalis tenax (Linnaeus, 1758);1541217;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Eristalis;Eristalis tenax;Eristalis tenax;(Linnaeus, 1758) 
+;Araneus diadematus;Araneus diadematus Clerck, 1757;2160133;EXACT;97;ACCEPTED;SPECIES;Animalia;Arthropoda;Arachnida;Araneae;Araneidae;Araneus;Araneus diadematus;Araneus diadematus;Clerck, 1757
+;Sarcophaga carnaria;Sarcophaga carnaria (Linnaeus, 1758);4518735;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Sarcophagidae;Sarcophaga;Sarcophaga carnaria;Sarcophaga carnaria;(Linnaeus, 1758) 
+;Chrysomya albiceps;Chrysomya albiceps (Wiedemann, 1819);5064140;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Calliphoridae;Chrysomya;Chrysomya albiceps;Chrysomya albiceps;(Wiedemann, 1819) 
+;Episyrphus balteatus;Episyrphus balteatus (De Geer, 1776);1536449;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Episyrphus;Episyrphus balteatus;Episyrphus balteatus;(De Geer, 1776) 
+;Lucilia caesar;Lucilia caesar (Linnaeus, 1758);5064105;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Calliphoridae;Lucilia;Lucilia caesar;Lucilia caesar;(Linnaeus, 1758) 
+;Vitis vinifera;Vitis vinifera L.;5372392;EXACT;97;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Vitales;Vitaceae;Vitis;Vitis vinifera;Vitis vinifera;L.
+;Calliphora vicina;Calliphora vicina Robineau-Desvoidy, 1830;1502577;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Calliphoridae;Calliphora;Calliphora vicina;Calliphora vicina;Robineau-Desvoidy, 1830
+;Lucilia sericata;Lucilia sericata (Meigen, 1826);5063973;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Calliphoridae;Lucilia;Lucilia sericata;Lucilia sericata;(Meigen, 1826) 
+;Alydus calcaratus;Alydus calcaratus (Linnaeus, 1758);2050173;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Hemiptera;Alydidae;Alydus;Alydus calcaratus;Alydus calcaratus;(Linnaeus, 1758) 
+;Scathophaga stercoraria;Scathophaga stercoraria (Linnaeus, 1758);1556243;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Scathophagidae;Scathophaga;Scathophaga stercoraria;Scathophaga stercoraria;(Linnaeus, 1758) 
+;Ficus carica;Ficus carica L.;5361909;EXACT;99;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Rosales;Moraceae;Ficus;Ficus carica;Ficus carica;L.
+;Mallota florea;Mallota florea (Linnaeus, 1758);1541441;EXACT;98;SYNONYM;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Myathropa;Myathropa florea;Mallota florea;(Linnaeus, 1758) 
+;Foeniculum vulgare;Foeniculum vulgare Mill.;3034922;EXACT;97;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Apiales;Apiaceae;Foeniculum;Foeniculum vulgare;Foeniculum vulgare;Mill.
+;Eriobotrya japonica;Eriobotrya japonica (Thunb.) Lindl.;3024146;EXACT;98;SYNONYM;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Rosales;Rosaceae;Rhaphiolepis;Rhaphiolepis loquata;Eriobotrya japonica;(Thunb.) Lindl.
+;Mantis religiosa;Mantis religiosa (Linne, 1758);6258028;EXACT;97;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Mantodea;Mantidae;Mantis;Mantis religiosa;Mantis religiosa;(Linne, 1758) 
+;Panorpa communis;Panorpa communis Linnaeus, 1758;5742495;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Mecoptera;Panorpidae;Panorpa;Panorpa communis;Panorpa communis;Linnaeus, 1758
+;Cheilosia tarditas;Cheilosia tarditas (Harris, 1780);1540335;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Cheilosia;Cheilosia tarditas;Cheilosia tarditas;(Harris, 1780) 
+;Mesembrina meridiana;Mesembrina meridiana (Linnaeus, 1758);1525771;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Muscidae;Mesembrina;Mesembrina meridiana;Mesembrina meridiana;(Linnaeus, 1758) 
+;Ectophasia crassipennis;Ectophasia crassipennis (Fabricius, 1794);1460610;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Tachinidae;Ectophasia;Ectophasia crassipennis;Ectophasia crassipennis;(Fabricius, 1794) 
+;Reynoutria japonica;Reynoutria japonica Houtt.;2889173;EXACT;99;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Caryophyllales;Polygonaceae;Reynoutria;Reynoutria japonica;Reynoutria japonica;Houtt.
+;Sargus bipunctatus;Sargus bipunctatus (Scopoli, 1763);8306271;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Stratiomyidae;Sargus;Sargus bipunctatus;Sargus bipunctatus;(Scopoli, 1763) 
+;Eristalis arbustorum;Eristalis arbustorum (Linnaeus, 1758);1541146;EXACT;98;SYNONYM;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Eoseristalis;Eoseristalis arbustorum;Eristalis arbustorum;(Linnaeus, 1758) 
+;Musca autumnalis;Musca autumnalis De Geer, 1776;1524801;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Muscidae;Musca;Musca autumnalis;Musca autumnalis;De Geer, 1776
+;Epistrophe nitidicollis;Epistrophe nitidicollis (Meigen, 1822);5766579;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Epistrophe;Epistrophe nitidicollis;Epistrophe nitidicollis;(Meigen, 1822) 
+;Eupeodes corollae;Eupeodes corollae (Fabricius, 1794);1540742;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Eupeodes;Eupeodes corollae;Eupeodes corollae;(Fabricius, 1794) 
+;Panorpa germanica;Panorpa germanica Linnaeus, 1758;5742496;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Mecoptera;Panorpidae;Panorpa;Panorpa germanica;Panorpa germanica;Linnaeus, 1758
+;Dryomyza anilis;Dryomyza anilis Fallén, 1820;1568118;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Dryomyzidae;Dryomyza;Dryomyza anilis;Dryomyza anilis;Fallén, 1820
+;Campsis radicans;Campsis radicans (L.) Seem.;7613490;EXACT;97;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Lamiales;Bignoniaceae;Campsis;Campsis radicans;Campsis radicans;(L.) Seem.
+;Euonymus japonicus;Euonymus japonicus Thunb.;7102937;EXACT;97;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Celastrales;Celastraceae;Euonymus;Euonymus japonicus;Euonymus japonicus;Thunb.
+;Heracleum sphondylium;Heracleum sphondylium L.;3034830;EXACT;97;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Apiales;Apiaceae;Heracleum;Heracleum sphondylium;Heracleum sphondylium;L.
+;Epistrophe eligans;Epistrophe eligans (Harris, 1780);5766577;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Epistrophe;Epistrophe eligans;Epistrophe eligans;(Harris, 1780) 
+;Melanostoma scalare;Melanostoma scalare (Fabricius, 1794);5766556;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Melanostoma;Melanostoma scalare;Melanostoma scalare;(Fabricius, 1794) 
+;Ferdinandea cuprea;Ferdinandea cuprea (Scopoli, 1763);1542979;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Ferdinandea;Ferdinandea cuprea;Ferdinandea cuprea;(Scopoli, 1763) 
+;Eupeodes latifasciatus;Eupeodes latifasciatus (Macquart, 1829);1540691;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Eupeodes;Eupeodes latifasciatus;Eupeodes latifasciatus;(Macquart, 1829) 
+;Sphaerophoria scripta;Sphaerophoria scripta (Linnaeus, 1758);1539177;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Sphaerophoria;Sphaerophoria scripta;Sphaerophoria scripta;(Linnaeus, 1758) 
+;Scaeva pyrastri;Scaeva pyrastri (Linnaeus, 1758);1537719;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Scaeva;Scaeva pyrastri;Scaeva pyrastri;(Linnaeus, 1758) 
+;Syrphus ribesii;Syrphus ribesii (Linnaeus, 1758);1537266;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Syrphus;Syrphus ribesii;Syrphus ribesii;(Linnaeus, 1758) 
+;Meliscaeva auricollis;Meliscaeva auricollis (Meigen, 1822);1535529;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Meliscaeva;Meliscaeva auricollis;Meliscaeva auricollis;(Meigen, 1822) 
+;Pipizella viduata;Pipizella viduata (Linnaeus, 1758);1532982;EXACT;97;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Pipizella;Pipizella viduata;Pipizella viduata;(Linnaeus, 1758) 
+;Emberiza cirlus;Emberiza cirlus Linnaeus, 1766;7626513;EXACT;99;ACCEPTED;SPECIES;Animalia;Chordata;Aves;Passeriformes;Emberizidae;Emberiza;Emberiza cirlus;Emberiza cirlus;Linnaeus, 1766
+;Polistes dominula;Polistes dominula (Christ, 1791);5871389;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Hymenoptera;Eumenidae;Polistes;Polistes dominula;Polistes dominula;(Christ, 1791) 
+;Pyrus communis;Pyrus communis L.;5362573;EXACT;97;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Rosales;Rosaceae;Pyrus;Pyrus communis;Pyrus communis;L.
+;Phaonia valida;Phaonia valida (Harris, 1780);5068131;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Muscidae;Phaonia;Phaonia valida;Phaonia valida;(Harris, 1780) 
+;Aphrophora salicina;Aphrophora salicina (Goeze, 1778);4482772;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Hemiptera;Aphrophoridae;Aphrophora;Aphrophora salicina;Aphrophora salicina;(Goeze, 1778) 
+;Apodemus flavicollis;Apodemus flavicollis (Melchior, 1834);2437756;EXACT;99;ACCEPTED;SPECIES;Animalia;Chordata;Mammalia;Rodentia;Muridae;Apodemus;Apodemus flavicollis;Apodemus flavicollis;(Melchior, 1834) 
+;Noctua fimbriata;Noctua fimbriata Schreber, 1759;1789745;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Lepidoptera;Noctuidae;Noctua;Noctua fimbriata;Noctua fimbriata;Schreber, 1759
+;Stomorhina lunata;Stomorhina lunata (Fabricius, 1805);1567939;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Rhiniidae;Stomorhina;Stomorhina lunata;Stomorhina lunata;(Fabricius, 1805) 
+;Graphomya maculata;Graphomya maculata (Scopoli, 1763);1524265;EXACT;97;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Muscidae;Graphomya;Graphomya maculata;Graphomya maculata;(Scopoli, 1763) 
+;Tipula paludosa;Tipula paludosa Meigen, 1830;1505543;EXACT;97;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Tipulidae;Tipula;Tipula paludosa;Tipula paludosa;Meigen, 1830
+;Phasia aurigera;Phasia aurigera (Egger, 1860);1464726;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Tachinidae;Phasia;Phasia aurigera;Phasia aurigera;(Egger, 1860) 
+;Volinus sticticus;Volinus sticticus (Panzer, 1798);1070518;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Coleoptera;Scarabaeidae;Volinus;Volinus sticticus;Volinus sticticus;(Panzer, 1798) 
+;Rubus fruticosus;Rubus fruticosus L.;8436459;EXACT;97;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Rosales;Rosaceae;Rubus;Rubus fruticosus;Rubus fruticosus;L.
+;Pittosporum tobira;Pittosporum tobira (Murray) Aiton fil.;8677924;EXACT;99;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Apiales;Pittosporaceae;Pittosporum;Pittosporum tobira;Pittosporum tobira;(Murray) Aiton fil.
+;Oxalis corniculata;Oxalis corniculata L.;8427624;EXACT;99;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Oxalidales;Oxalidaceae;Oxalis;Oxalis corniculata;Oxalis corniculata;L.
+;Caryopteris incana;Caryopteris incana (Thunb. ex Houtt.) Miq.;7308640;EXACT;99;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Lamiales;Lamiaceae;Caryopteris;Caryopteris incana;Caryopteris incana;(Thunb. ex Houtt.) Miq.
+;Angelica sylvestris;Angelica sylvestris L.;5371818;EXACT;99;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Apiales;Apiaceae;Angelica;Angelica sylvestris;Angelica sylvestris;L.
+;Oenothera lindheimeri;Oenothera lindheimeri (Engelm. & A.Gray) W.L.Wagner & Hoch;3664589;EXACT;99;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Myrtales;Onagraceae;Oenothera;Oenothera lindheimeri;Oenothera lindheimeri;(Engelm. & A.Gray) W.L.Wagner & Hoch
+;Oenothera glazioviana;Oenothera glazioviana Micheli;3188894;EXACT;98;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Myrtales;Onagraceae;Oenothera;Oenothera glazioviana;Oenothera glazioviana;Micheli
+;Euphorbia characias;Euphorbia characias L.;3067353;EXACT;98;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Malpighiales;Euphorbiaceae;Euphorbia;Euphorbia characias;Euphorbia characias;L.
+;Elaeagnus multiflora;Elaeagnus multiflora Thunb.;3039272;EXACT;97;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Rosales;Elaeagnaceae;Elaeagnus;Elaeagnus multiflora;Elaeagnus multiflora;Thunb.
+;Fatsia japonica;Fatsia japonica (Thunb.) Decne. & Planch.;3039046;EXACT;99;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Apiales;Araliaceae;Fatsia;Fatsia japonica;Fatsia japonica;(Thunb.) Decne. & Planch.
+;Aralia elata;Aralia elata (Miq.) Seem.;3036892;EXACT;97;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Apiales;Araliaceae;Aralia;Aralia elata;Aralia elata;(Miq.) Seem.
+;Mentha suaveolens;Mentha suaveolens Ehrh.;2927190;EXACT;97;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Lamiales;Lamiaceae;Mentha;Mentha suaveolens;Mentha suaveolens;Ehrh.
+;Lantana camara;Lantana camara L.;2925303;EXACT;99;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Lamiales;Verbenaceae;Lantana;Lantana camara;Lantana camara;L.
+;Fagopyrum esculentum;Fagopyrum esculentum Moench;2889373;EXACT;99;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Caryophyllales;Polygonaceae;Fagopyrum;Fagopyrum esculentum;Fagopyrum esculentum;Moench
+;Allium fistulosum;Allium fistulosum L.;2856504;EXACT;99;ACCEPTED;SPECIES;Plantae;Tracheophyta;Liliopsida;Asparagales;Amaryllidaceae;Allium;Allium fistulosum;Allium fistulosum;L.
+;Musa basjoo;Musa basjoo Siebold & Zucc. ex Iinuma;2762737;EXACT;98;ACCEPTED;SPECIES;Plantae;Tracheophyta;Liliopsida;Zingiberales;Musaceae;Musa;Musa basjoo;Musa basjoo;Siebold & Zucc. ex Iinuma
+;Thalia dealbata;Thalia dealbata Fraser;5303040;EXACT;97;ACCEPTED;SPECIES;Plantae;Tracheophyta;Liliopsida;Zingiberales;Marantaceae;Thalia;Thalia dealbata;Thalia dealbata;Fraser
+;Ampelopsis heterophylla;Ampelopsis heterophylla (Thunb.) Siebold & Zucc.;3039180;EXACT;97;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Vitales;Vitaceae;Ampelopsis;Ampelopsis heterophylla;Ampelopsis heterophylla;(Thunb.) Siebold & Zucc.
+;Helophilus trivittatus;Helophilus trivittatus (Fabricius, 1805);5071382;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Helophilus;Helophilus trivittatus;Helophilus trivittatus;(Fabricius, 1805) 
+;Xanthogramma pedissequum;Xanthogramma pedissequum (Harris, 1776);5071297;EXACT;98;SYNONYM;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Philhelius;Philhelius pedissequum;Xanthogramma pedissequum;(Harris, 1776) 
+;Criorhina berberina;Criorhina berberina (Fabricius, 1805);5070993;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Criorhina;Criorhina berberina;Criorhina berberina;(Fabricius, 1805) 
+;Syritta pipiens;Syritta pipiens (Linnaeus, 1758);1544431;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Syritta;Syritta pipiens;Syritta pipiens;(Linnaeus, 1758) 
+;Volucella bombylans;Volucella bombylans (Linnaeus, 1758);1541763;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Volucella;Volucella bombylans;Volucella bombylans;(Linnaeus, 1758) 
+;Xylota segnis;Xylota segnis (Linnaeus, 1758);1541562;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Xylota;Xylota segnis;Xylota segnis;(Linnaeus, 1758) 
+;Eupeodes luniger;Eupeodes luniger (Meigen, 1822);1540875;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Eupeodes;Eupeodes luniger;Eupeodes luniger;(Meigen, 1822) 
+;Xanthandrus comtus;Xanthandrus comtus (Harris, 1780);1538946;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Xanthandrus;Xanthandrus comtus;Xanthandrus comtus;(Harris, 1780) 
+;Temnostoma vespiforme;Temnostoma vespiforme (Linnaeus, 1758);1538870;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Temnostoma;Temnostoma vespiforme;Temnostoma vespiforme;(Linnaeus, 1758) 
+;Chrysotoxum cautum;Chrysotoxum cautum (Harris, 1778);1535990;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Chrysotoxum;Chrysotoxum cautum;Chrysotoxum cautum;(Harris, 1778) 
+;Caliprobola speciosa;Caliprobola speciosa (Rossi, 1790);1533005;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Caliprobola;Caliprobola speciosa;Caliprobola speciosa;(Rossi, 1790) 
+;Musca domestica;Musca domestica Linnaeus, 1758;1524843;EXACT;97;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Muscidae;Musca;Musca domestica;Musca domestica;Linnaeus, 1758
+;Theronia atalantae;Theronia atalantae (Poda, 1761);1278900;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Hymenoptera;Ichneumonidae;Theronia;Theronia atalantae;Theronia atalantae;(Poda, 1761) 
+;Cylindromyia bicolor;Cylindromyia bicolor (Olivier, 1811);9768924;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Tachinidae;Cylindromyia;Cylindromyia bicolor;Cylindromyia bicolor;(Olivier, 1811) 
+;Apatura ilia;Apatura ilia (Denis & Schiffermüller), 1775;8138711;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Lepidoptera;Nymphalidae;Apatura;Apatura ilia;Apatura ilia;(Denis & Schiffermüller) , 1775
+;Pararge aegeria;Pararge aegeria (Linnaeus, 1758);8049830;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Lepidoptera;Nymphalidae;Pararge;Pararge aegeria;Pararge aegeria;(Linnaeus, 1758) 
+;Prunus domestica;Prunus domestica L.;7931731;EXACT;97;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Rosales;Rosaceae;Prunus;Prunus domestica;Prunus domestica;L.
+;Panorpa cognata;Panorpa cognata Rambur, 1842;5742524;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Mecoptera;Panorpidae;Panorpa;Panorpa cognata;Panorpa cognata;Rambur, 1842
+;Cabera exanthemata;Cabera exanthemata (Scopoli, 1763);5143675;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Lepidoptera;Geometridae;Cabera;Cabera exanthemata;Cabera exanthemata;(Scopoli, 1763) 
+;Polyommatus icarus;Polyommatus Latreille, 1804;1933268;HIGHERRANK;97;ACCEPTED;GENUS;Animalia;Arthropoda;Insecta;Lepidoptera;Lycaenidae;Polyommatus;;Polyommatus;Latreille, 1804
+;Phaonia pallida;Phaonia pallida (Fabricius, 1787);5068545;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Muscidae;Phaonia;Phaonia pallida;Phaonia pallida;(Fabricius, 1787) 
+;Phaonia tuguriorum;Phaonia tuguriorum (Scopoli, 1763);5068500;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Muscidae;Phaonia;Phaonia tuguriorum;Phaonia tuguriorum;(Scopoli, 1763) 
+;Gymnosoma nudifrons;Gymnosoma nudifrons Herting, 1966;5059119;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Tachinidae;Gymnosoma;Gymnosoma nudifrons;Gymnosoma nudifrons;Herting, 1966
+;Dicranopalpus ramosus;Dicranopalpus ramosus (Simon, 1909);4553430;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Arachnida;Opiliones;Phalangiidae;Dicranopalpus;Dicranopalpus ramosus;Dicranopalpus ramosus;(Simon, 1909) 
+;Xiphydria longicollis;Xiphydria longicollis (Geoffroy, 1785);4492397;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Hymenoptera;Xiphydriidae;Xiphydria;Xiphydria longicollis;Xiphydria longicollis;(Geoffroy, 1785) 
+;Crataegus germanica;Crataegus germanica (L.) Kuntze;3015106;EXACT;97;SYNONYM;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Rosales;Rosaceae;Mespilus;Mespilus germanica;Crataegus germanica;(L.) Kuntze
+;Prunus avium;Prunus avium (L.) L.;3020791;EXACT;97;ACCEPTED;SPECIES;Plantae;Tracheophyta;Magnoliopsida;Rosales;Rosaceae;Prunus;Prunus avium;Prunus avium;(L.) L.
+;Cervus elaphus;Cervus elaphus Linnaeus, 1758;2440958;EXACT;99;ACCEPTED;SPECIES;Animalia;Chordata;Mammalia;Artiodactyla;Cervidae;Cervus;Cervus elaphus;Cervus elaphus;Linnaeus, 1758
+;Oryctolagus cuniculus;Oryctolagus cuniculus (Linnaeus, 1758);2436940;EXACT;99;ACCEPTED;SPECIES;Animalia;Chordata;Mammalia;Lagomorpha;Leporidae;Oryctolagus;Oryctolagus cuniculus;Oryctolagus cuniculus;(Linnaeus, 1758) 
+;Agalenatea redii;Agalenatea redii (Scopoli, 1763);2160943;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Arachnida;Araneae;Araneidae;Agalenatea;Agalenatea redii;Agalenatea redii;(Scopoli, 1763) 
+;Larinioides sclopetarius;Larinioides sclopetarius (Clerck, 1757);2159209;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Arachnida;Araneae;Araneidae;Larinioides;Larinioides sclopetarius;Larinioides sclopetarius;(Clerck, 1757) 
+;Metellina mengei;Metellina mengei (Blackwall, 1869);2151598;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Arachnida;Araneae;Tetragnathidae;Metellina;Metellina mengei;Metellina mengei;(Blackwall, 1869) 
+;Metellina segmentata;Metellina segmentata (Clerck, 1757);2151597;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Arachnida;Araneae;Tetragnathidae;Metellina;Metellina segmentata;Metellina segmentata;(Clerck, 1757) 
+;Pseudomallada prasinus;Pseudomallada prasinus (Burmeister, 1839);2106928;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Neuroptera;Chrysopidae;Pseudomallada;Pseudomallada prasinus;Pseudomallada prasinus;(Burmeister, 1839) 
+;Himacerus apterus;Himacerus apterus (J.C.Fabricius, 1798);2021041;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Hemiptera;Nabidae;Himacerus;Himacerus apterus;Himacerus apterus;(J.C.Fabricius, 1798) 
+;Coenonympha pamphilus;Coenonympha pamphilus (Linnaeus, 1758);1911461;EXACT;97;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Lepidoptera;Nymphalidae;Coenonympha;Coenonympha pamphilus;Coenonympha pamphilus;(Linnaeus, 1758) 
+;Vanessa atalanta;Vanessa atalanta (Linnaeus, 1758);1898286;EXACT;97;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Lepidoptera;Nymphalidae;Vanessa;Vanessa atalanta;Vanessa atalanta;(Linnaeus, 1758) 
+;Nomophila noctuella;Nomophila noctuella (Denis & Schiffermüller);1881151;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Lepidoptera;Crambidae;Nomophila;Nomophila noctuella;Nomophila noctuella;(Denis & Schiffermüller) 
+;Orgyia antiqua;Orgyia antiqua (Linnaeus, 1758);1819873;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Lepidoptera;Erebidae;Orgyia;Orgyia antiqua;Orgyia antiqua;(Linnaeus, 1758) 
+;Autographa gamma;Autographa gamma (Linnaeus, 1758);1792418;EXACT;97;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Lepidoptera;Noctuidae;Autographa;Autographa gamma;Autographa gamma;(Linnaeus, 1758) 
+;Noctua pronuba;Noctua pronuba Linnaeus, 1758;1789695;EXACT;97;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Lepidoptera;Noctuidae;Noctua;Noctua pronuba;Noctua pronuba;Linnaeus, 1758
+;Agrotis exclamationis;Agrotis exclamationis (Linnaeus, 1758);1771214;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Lepidoptera;Noctuidae;Agrotis;Agrotis exclamationis;Agrotis exclamationis;(Linnaeus, 1758) 
+;Lacanobia oleracea;Lacanobia oleracea Linnaeus, 1758;1759083;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Lepidoptera;Noctuidae;Lacanobia;Lacanobia oleracea;Lacanobia oleracea;Linnaeus, 1758
+;Pholidoptera griseoaptera;Pholidoptera griseoaptera (De Geer, 1773);1695297;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Orthoptera;Tettigoniidae;Pholidoptera;Pholidoptera griseoaptera;Pholidoptera griseoaptera;(De Geer, 1773) 
+;Meconema meridionale;Meconema meridionale Costa, 1860;1690429;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Orthoptera;Tettigoniidae;Meconema;Meconema meridionale;Meconema meridionale;Costa, 1860
+;Volucella zonaria;Volucella zonaria (Poda, 1761);1541832;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Volucella;Volucella zonaria;Volucella zonaria;(Poda, 1761) 
+;Volucella inanis;Volucella inanis (Linnaeus, 1758);1541740;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Volucella;Volucella inanis;Volucella inanis;(Linnaeus, 1758) 
+;Scaeva selenitica;Scaeva selenitica (Meigen, 1822);1537717;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Syrphidae;Scaeva;Scaeva selenitica;Scaeva selenitica;(Meigen, 1822) 
+;Neomyia cornicina;Neomyia cornicina (Fabricius, 1775);1527645;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Muscidae;Neomyia;Neomyia cornicina;Neomyia cornicina;(Fabricius, 1775) 
+;Stomoxys calcitrans;Stomoxys calcitrans (Linnaeus, 1758);1526081;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Muscidae;Stomoxys;Stomoxys calcitrans;Stomoxys calcitrans;(Linnaeus, 1758) 
+;Onesia viarum;Onesia viarum Robineau-Desvoidy, 1830;1502461;EXACT;98;SYNONYM;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Calliphoridae;Bellardia;Bellardia viarum;Onesia viarum;Robineau-Desvoidy, 1830
+;Cynomya mortuorum;Cynomya mortuorum (Linnaeus, 1761);1502142;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Calliphoridae;Cynomya;Cynomya mortuorum;Cynomya mortuorum;(Linnaeus, 1761) 
+;Linnaemya vulpina;Linnaemya vulpina (Fallén, 1810);1465590;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Diptera;Tachinidae;Linnaemya;Linnaemya vulpina;Linnaemya vulpina;(Fallén, 1810) 
+;Chaetopteryx villosa;Chaetopteryx villosa (Fabricius, 1798);1442307;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Trichoptera;Limnephilidae;Chaetopteryx;Chaetopteryx villosa;Chaetopteryx villosa;(Fabricius, 1798) 
+;Bombus lapidarius;Bombus lapidarius (Linnaeus, 1758);1340301;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Hymenoptera;Apidae;Bombus;Bombus lapidarius;Bombus lapidarius;(Linnaeus, 1758) 
+;Vespa velutina;Vespa velutina Lepeletier, 1836;1311477;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Insecta;Hymenoptera;Vespidae;Vespa;Vespa velutina;Vespa velutina;Lepeletier, 1836
+;Pernis apivorus;Pernis apivorus (Linnaeus, 1758);2480420;EXACT;99;ACCEPTED;SPECIES;Animalia;Chordata;Aves;Accipitriformes;Accipitridae;Pernis;Pernis apivorus;Pernis apivorus;(Linnaeus, 1758) 
+;Gallus gallus;Gallus gallus (Linnaeus, 1758);9326020;EXACT;99;ACCEPTED;SPECIES;Animalia;Chordata;Aves;Galliformes;Phasianidae;Gallus;Gallus gallus;Gallus gallus;(Linnaeus, 1758) 
+;Beauveria bassiana;Beauveria bassiana (Bals.-Criv.) Vuill.;2560612;EXACT;99;ACCEPTED;SPECIES;Fungi;Ascomycota;Sordariomycetes;Hypocreales;Cordycipitaceae;Beauveria;Beauveria bassiana;Beauveria bassiana;(Bals.-Criv.) Vuill.
+;Varroa destructor;Varroa destructor Anderson & Trueman, 2000;2188249;EXACT;99;ACCEPTED;SPECIES;Animalia;Arthropoda;Arachnida;Mesostigmata;Varroidae;Varroa;Varroa destructor;Varroa destructor;Anderson & Trueman, 2000
