@@ -87,9 +87,9 @@ cat secondary_interactions_sources.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62
 cat secondary_interactions_targets.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr >  secondary_interactions_targets_light.tsv
 ```
 
-## Fine tuning of network within R
+## Fine-tuning of network within R
 
-Now, we will finetune these interactions into a network in R.
+Now, we will fine-tune these interactions into a network in R.
 
 First, load all necessary libraries.
 ```r
