@@ -209,7 +209,7 @@ all_species <- sort(
 
 
 
-## Intermetzo: taxonomic alignment with nomer
+## Intermezzo: taxonomic alignment with nomer
 In order to create the Belgian network of _Vespa velutina_, we will only incorporate species that have been observed in Belgium since 2000 according to GBIF. To do this, we use [nomer](https://github.com/globalbioticinteractions/nomer) to obtain the GBIF speciesKey of each species and then link this to the speciesKeys mentioned within the [Belgian occurence cube](https://zenodo.org/record/7389450#.Y7c0QHbMJPY). There are multiple ways to obtain the GBIF taxonKey of a list of species (such as the function name_backbone from [rgbif](https://cran.r-project.org/web/packages/rgbif/index.html)) but for increased speed I here demonstrate how to apply nomer.
 
 Nomer is available as a linux package. So we return to the Linux command line to perform the following steps.
