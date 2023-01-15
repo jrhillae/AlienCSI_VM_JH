@@ -346,4 +346,5 @@ Which version of GBIF taxonomic backbone is applied by nomer?
 ```shell
 nomer properties| grep gbif
 ```
-
+Jasmijn Hillaert (Research Institute for Nature and forest, Belgium)
+jasmijn.hillaert@inbo.be
