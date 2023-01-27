@@ -290,7 +290,7 @@ speciesNetworkCubeBE <- speciesNetwork %>% filter(
   taxonKey%in%cube_BE$speciesKey)
 ```
 
-What are the primary interactions of _Vespa velutina_? To answer this question we look up all interactions having _Vespa velutina_ as source and a species within the Belgian cube as target (PartI), and all interactions having a species within the cube as source and _Vespa velutina_ as target (PartII). Together, these represtent the primary interactions of _Vespa velutina_ in Belgium, according to GloBI and the Belgian species cube.
+What are the primary interactions of _Vespa velutina_? To answer this question we look up all interactions having _Vespa velutina_ as source and a species within the Belgian cube as target (PartI), and all interactions having a species within the cube as source and _Vespa velutina_ as target (PartII). Together, these represent the primary interactions of _Vespa velutina_ in Belgium, according to GloBI and the Belgian species cube.
 ```r
 primaryInteractionsPartI <- interactionsCleaned %>%
   filter(sourceSpeciesName == "Vespa velutina")%>%
@@ -305,7 +305,7 @@ What are the primary species?
 primary_species<- unique(c(primaryInteractionsPartI$targetSpeciesName,
                            primaryInteractionsPartII$sourceSpeciesName))
 ``` 
-What are the secondary interactions of _Vespa velutina_? To answer this question we look up all interactions having a primary species as source and a species within the Belgian cube as target (PartI), and all interactions having a species within the cube as source and a primary species as target (PartII). Together, these represtent the secondary interactions of _Vespa velutina_ in Belgium, according to GloBI and the Belgian species cube.
+What are the secondary interactions of _Vespa velutina_? To answer this question we look up all interactions having a primary species as source and a species within the Belgian cube as target (PartI), and all interactions having a species within the cube as source and a primary species as target (PartII). Together, these represent the secondary interactions of _Vespa velutina_ in Belgium, according to GloBI and the Belgian species cube.
 ```r
 secondaryInteractionsPartI <- interactionsCleaned %>%
   filter(sourceSpeciesName%in%primary_species)%>%
