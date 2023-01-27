@@ -30,6 +30,10 @@ cd /home/username/newfolder
 ## Data filtering from entire GloBi database 
 Now, go to the GloBI website and download latest stable version of [the entire GloBI database](https://zenodo.org/record/7348355/files/interactions.tsv.gz). The database of GloBI is available in [many formats](https://www.globalbioticinteractions.org/data). For the following, you are advised to download a stable (citable) version of the database in tsv format. Place the download into the working directory after downloading. 
 
+Check the content of this file by printing the first line:
+```shell 
+cat interactions.tsv.gz | gunzip | head -n 1  
+```
 In this example, we are interested in creating a network for _Vespa velutina_, containing both direct and indirect interactions. 
 
 ### Getting direct interactions from GloBI
@@ -42,10 +46,6 @@ Herein, zgrep allows searching within zipped files. As such, a file does not not
 Explore the file vespa_velutina_interactions.tsv by printing the first 10 lines of the dataframe within the terminal: 
  ```shell 
 cat vespa_velutina_interactions.tsv | head
-```
-Only print the first row to read the header of the file:
-```shell 
-cat interactions.tsv.gz | gunzip | head -n 1 
 ```
 Check the number of lines within vespa_velutina_interactions.tsv by:
 ```shell
