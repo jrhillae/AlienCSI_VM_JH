@@ -360,11 +360,11 @@ cat vespa-velutina-interactions.tsv | cut -f87 | uniq
 Do also cite the version of GloBI that you downloaded:
 An overview is avaibele [here](https://zenodo.org/record/7348355#.Y9O0OnbMJPY).
 
-On what is nomer based?
+The sources of nomer can be found by:
 ```shell
 nomer properties| grep preston
 ```
-Which version of GBIF taxonomic backbone is applied by nomer?
+The version of the GBIF taxonomic backbone that is applied by nomer can be found by:
 ```shell
 nomer properties| grep gbif
 ```
