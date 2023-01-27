@@ -342,11 +342,19 @@ There are many options to visualise your network but Gephi is certainly a good c
 ![Untitled](https://user-images.githubusercontent.com/35692395/211156719-cf76de37-ca23-491b-bbb8-ab64e194be24.png)
  ## How to correctly cite your work?
 
-Do not forget to refer to the original datasets of the interactions in your network. Their info is described in columns 89 to 91 in the file interactions.tsv.gz.
+Do not forget to refer to the original datasets and sources of the interactions in your network. Their info is described in columns 87 to 91 in the file interactions.tsv.gz.
+
 For instance, the original datasets in the file vespa_velutina_interactions.tsv.gz can be found by:
 ```shell
-cat vespa-velutina-interactions.tsv | cut -f89,90,91 | uniq
+cat vespa-velutina-interactions.tsv | cut -f88,89,90,91 | uniq
 ```
+The reference of each individual interaction can be found by:
+```shell
+cat vespa-velutina-interactions.tsv | cut -f87 | uniq
+```
+Do also cite the version of GloBI that you downloaded:
+An overview is avaibele [here](https://zenodo.org/record/7348355#.Y9O0OnbMJPY).
+
 On what is nomer based?
 ```shell
 nomer properties| grep preston
