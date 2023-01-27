@@ -43,12 +43,15 @@ Explore the file vespa_velutina_interactions.tsv by printing the first 10 lines 
  ```shell 
 cat vespa_velutina_interactions.tsv | head
 ```
-Only print the first row to read the header
+Only print the first row to read the header of the file:
+```shell 
+cat interactions.tsv.gz | gunzip | head -n 1 
+```
 Check the number of lines within vespa_velutina_interactions.tsv by:
 ```shell
 cat vespa_velutina_interactions.tsv | wc -l  
 ```
-The file vespa_velutina_interactions.tsv contains all direct interactions of _Vespa velutina_ within the GloBI database. Info about each column and its content can be found [here](https://api.globalbioticinteractions.org/interactionFields?type=csv). We clean this final file before importing in R by only saving the following columns and deleting any duplicate rows: 
+The file vespa_velutina_interactions.tsv contains all direct interactions of _Vespa velutina_ within the GloBI database. We clean this final file before importing in R by only saving the following columns and deleting any duplicate rows: 
 
   - column 2: taxonids of the source species
   - column 3: taxon name
