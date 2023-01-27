@@ -344,11 +344,11 @@ There are many options to visualise your network but Gephi is certainly a good c
 
 Do not forget to refer to the original datasets and sources of the interactions in your network. Their info is described in columns 87 to 91 in the file interactions.tsv.gz.
 
-For instance, the original datasets in the file vespa_velutina_interactions.tsv.gz can be found by:
+For instance, the original datasets of the primary interactions described in  the file vespa_velutina_interactions.tsv can be found by:
 ```shell
 cat vespa-velutina-interactions.tsv | cut -f88,89,90,91 | uniq
 ```
-The reference of each individual interaction can be found by:
+As an example, the reference of each individual interaction in the file vespa_velutina_interactions.tsv can be found by:
 ```shell
 cat vespa-velutina-interactions.tsv | cut -f87 | uniq
 ```
@@ -364,4 +364,4 @@ Which version of GBIF taxonomic backbone is applied by nomer?
 nomer properties| grep gbif
 ```
 Jasmijn Hillaert (Research Institute for Nature and Forest, Belgium)
-contact: jasmijn.hillaert[@]inbo.be
+contact: jasmijn.hillaert@inbo.be
