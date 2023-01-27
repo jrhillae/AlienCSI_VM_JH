@@ -342,6 +342,11 @@ There are many options to visualise your network but Gephi is certainly a good c
 ![Untitled](https://user-images.githubusercontent.com/35692395/211156719-cf76de37-ca23-491b-bbb8-ab64e194be24.png)
  ## How to correctly cite your work?
 
+Do not forget to refer to the original datasets of the interactions in your network. Their info is described in columns 89 to 91 in the file interactions.tsv.gz.
+For instance, the original datasets in the file vespa_velutina_interactions.tsv.gz can be found by:
+```shell
+cat vespa-velutina-interactions.tsv | cut -f89,90,91 | uniq
+```
 On what is nomer based?
 ```shell
 nomer properties| grep preston
@@ -350,5 +355,5 @@ Which version of GBIF taxonomic backbone is applied by nomer?
 ```shell
 nomer properties| grep gbif
 ```
-Jasmijn Hillaert (Research Institute for Nature and forest, Belgium)
-jasmijn.hillaert@inbo.be
+Jasmijn Hillaert (Research Institute for Nature and Forest, Belgium)
+contact: jasmijn.hillaert[@]inbo.be
