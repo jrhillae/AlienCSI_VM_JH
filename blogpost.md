@@ -364,9 +364,11 @@ Which version of GBIF taxonomic backbone is applied by nomer?
 nomer properties| grep gbif
 ```
 
+<br>
+<br>
+<br>
 
 
-
-This workflow is written out by Jasmijn Hillaert (Research Institute for Nature and Forest, Belgium).
+Jasmijn Hillaert (Research Institute for Nature and Forest, Belgium).
 
 Any comments or issues can be posted [here](https://github.com/jrhillae/AlienCSI_VM_JH/issues) or send by [email](jasmijn.hillaert@inbo.be).
