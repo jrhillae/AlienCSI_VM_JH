@@ -174,7 +174,7 @@ Now, further process the dataframe by:
  - selecting interactions that are of interest
  - selecting rows in which species name of source and target are defined (notice we hereby only include taxons at species level in the network)
  - selecting particular columns
- - replacing any interactiontype or kingdom with a terminology of choice
+ - replacing any interaction type or kingdom with a terminology of choice
  - removing any duplicate rows
  
  ```r
