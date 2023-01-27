@@ -43,6 +43,7 @@ Explore the file vespa_velutina_interactions.tsv by printing the first 10 lines 
  ```shell 
 cat vespa_velutina_interactions.tsv | head
 ```
+Only print the first row to read the header
 Check the number of lines within vespa_velutina_interactions.tsv by:
 ```shell
 cat vespa_velutina_interactions.tsv | wc -l  
