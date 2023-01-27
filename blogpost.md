@@ -365,3 +365,5 @@ nomer properties| grep gbif
 ```
 Jasmijn Hillaert (Research Institute for Nature and Forest, Belgium)
 contact: jasmijn.hillaert@inbo.be
+
+Any comments or issues can be posted [here](https://github.com/jrhillae/AlienCSI_VM_JH/issues)
