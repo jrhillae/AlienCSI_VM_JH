@@ -218,6 +218,7 @@ all_species <- sort(
              quote=FALSE)
  ```
 
+![image](https://user-images.githubusercontent.com/35692395/215334262-aebaf015-5531-4905-bb6e-3624d29ed5a3.png)
 
 
 ## Intermezzo: taxonomic alignment with nomer
