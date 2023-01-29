@@ -50,6 +50,8 @@ cat interactions.tsv.gz | gunzip | head -n 1
 ```
 In this example, we are interested in creating a network for _Vespa velutina_, containing both direct and indirect interactions. 
 
+![image](https://user-images.githubusercontent.com/35692395/215334262-aebaf015-5531-4905-bb6e-3624d29ed5a3.png)
+
 ### Getting direct interactions from GloBI
 To obtain the direct interactions, we now search the database for all lines containing *Vespa velutina*. This outcome is saved into a the file vespa_velutina_interactions.tsv by:
 ```shell  
@@ -84,6 +86,7 @@ The file vespa_velutina_interactions.tsv contains all direct interactions of _Ve
 ```shell
 cat vespa_velutina_interactions.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr > vespa_velutina_interactions-light.tsv
 ```
+![image](https://user-images.githubusercontent.com/35692395/215337526-a72b1e8f-7f94-49c6-b7e7-28fa90ab771d.png)
 
 
 ### Getting indirect interactions from GloBI
@@ -234,7 +237,7 @@ all_species <- sort(
              quote=FALSE)
  ```
 
-![image](https://user-images.githubusercontent.com/35692395/215334262-aebaf015-5531-4905-bb6e-3624d29ed5a3.png)
+
 
 
 ## Intermezzo: taxonomic alignment with nomer
