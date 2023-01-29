@@ -237,7 +237,7 @@ all_species <- sort(
              quote=FALSE)
  ```
 
-
+![image](https://user-images.githubusercontent.com/35692395/215337689-4f56096c-4d38-48d8-89a4-61acdeceb50e.png)
 
 
 ## Intermezzo: taxonomic alignment with nomer
@@ -274,6 +274,9 @@ Add a tab in front of each species name, a necessity for running nomer, and look
 ```shell
 cat all_species_network.csv |sed "s/^/\t/g" | nomer append gbif> all_species_network_gbif.tsv 
 ```
+                                           
+![image](https://user-images.githubusercontent.com/35692395/215337735-01de2a27-7294-49ec-8220-d4f524048cbd.png)
+
 ## Finalizing network
 
 
