@@ -370,7 +370,7 @@ There are many options to visualise your network but Gephi is certainly a good c
 
 
 ![Untitled](https://user-images.githubusercontent.com/35692395/211156719-cf76de37-ca23-491b-bbb8-ab64e194be24.png)
- ## How to correctly cite your work?
+ ## How and what to cite when creating networks?
 
 Do not forget to refer to the original datasets and sources of the interactions in your network. Their info is described in columns 87 to 91 in the file interactions.tsv.gz.
 
