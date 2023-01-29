@@ -275,7 +275,7 @@ Add a tab in front of each species name, a necessity for running nomer, and look
 cat all_species_network.csv |sed "s/^/\t/g" | nomer append gbif> all_species_network_gbif.tsv 
 ```
                                            
-![image](https://user-images.githubusercontent.com/35692395/215337735-01de2a27-7294-49ec-8220-d4f524048cbd.png)
+![image](https://user-images.githubusercontent.com/35692395/215337890-2f96d5c6-b2d4-4533-932e-d815ee8350bd.png)
 
 ## Finalizing network
 
