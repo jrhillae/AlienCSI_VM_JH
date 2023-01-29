@@ -57,7 +57,7 @@ To obtain the direct interactions, we now search the database for all lines cont
 ```shell  
 zgrep "Vespa velutina" interactions.tsv.gz > vespa_velutina_interactions.tsv   
 ```
-Herein, zgrep allows searching within zipped files. As such, a file does not not need to be unpacked beforehand. In this example, we are lucky as _Vespa velutina_ has no synonyms. In case your species of interest has many synonyms it is advisable to run an extra step in Nomer to obtain all possible id's for that species (see below, taxonomic alignment with Nomer).
+Herein, zgrep allows searching within zipped files. As such, a file does not not need to be unpacked beforehand. In this example, we are lucky as _Vespa velutina_ has no synonyms. In case your species of interest has many synonyms, they should all be included in this step.
 
 Explore the file vespa_velutina_interactions.tsv by printing the first 10 lines of the dataframe within the terminal: 
  ```shell 
@@ -102,12 +102,12 @@ Manually remove the first row of the files in case it represents an empty line. 
 while read line; do zgrep "$line" interactions.tsv.gz >> secondary_interactions_sources.tsv; done <vespa_velutina_sources.tsv
 while read line; do zgrep "$line" interactions.tsv.gz >> secondary_interactions_targets.tsv; done <vespa_velutina_targets.tsv
 ```
-Again, we clean up both output files by only selecting particular columns (see above) and deleting duplicate rows.
-
+Again, we clean up both output files by only selecting particular columns (see above) and deleting duplicate rows. 
 ```shell
 cat secondary_interactions_sources.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr > secondary_interactions_sources_light.tsv
 cat secondary_interactions_targets.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr > secondary_interactions_targets_light.tsv
 ```
+For completeness, I mention that there is a list of [refuted interactions](https://zenodo.org/record/7348355/files/refuted-interactions.tsv.gz) available on GloBI. Interactions within this list contain errors and should therefore be excluded from your network. This is not illustrated here.
 
 <p align="center">
 </figure>
