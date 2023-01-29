@@ -86,7 +86,7 @@ The file vespa_velutina_interactions.tsv contains all direct interactions of _Ve
 ```shell
 cat vespa_velutina_interactions.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr > vespa_velutina_interactions-light.tsv
 ```
-![image](https://user-images.githubusercontent.com/35692395/215337526-a72b1e8f-7f94-49c6-b7e7-28fa90ab771d.png)
+![image](https://user-images.githubusercontent.com/35692395/215337604-e8cec021-37fd-4950-8b6a-7dec16f5ea4d.png)
 
 
 ### Getting indirect interactions from GloBI
