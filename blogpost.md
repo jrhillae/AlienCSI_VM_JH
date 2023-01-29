@@ -12,6 +12,9 @@ Within a network, species can be either directly or indirectly linked. In this b
 <p align="center">
 <img align="center" src="https://user-images.githubusercontent.com/35692395/215335687-56ca1856-43e2-4f53-b788-32d4f84eaf72.png" width="400" />
 </p>
+
+
+
  
 ## Install & setup WSL
 The fastest way to perform data wrangling on large datafiles is using the Linux command line. If you have a Windows laptop (like me) the best way to get started is by installing [WSL](https://learn.microsoft.com/en-us/windows/wsl/) (Windows subsystem for Linux) following [this instruction guide](https://learn.microsoft.com/en-us/windows/wsl/install). I choose to install Ubuntu as Linux distribution. 
@@ -102,10 +105,10 @@ Again, we clean up both output files by only selecting particular columns (see a
 cat secondary_interactions_sources.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr > secondary_interactions_sources_light.tsv
 cat secondary_interactions_targets.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr > secondary_interactions_targets_light.tsv
 ```
+![image](https://user-images.githubusercontent.com/35692395/215336304-d8339481-9169-483c-9618-c65904c6c20c.png)
 
 <p align="center">
-<img align="center" alt= Gilles San Martin src="h![image](https://user-images.githubusercontent.com/35692395/215336135-50021920-9c8f-41ed-8440-452979e4cf03.png)
-" width="400" />
+<img align="center" alt= "Gilles San Martin" src="https://user-images.githubusercontent.com/35692395/215336135-50021920-9c8f-41ed-8440-452979e4cf03.png" " width="400" />
 </p>
 
 
