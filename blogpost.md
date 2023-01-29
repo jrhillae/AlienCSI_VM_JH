@@ -393,6 +393,7 @@ The version of the GBIF taxonomic backbone that is applied by nomer can be found
 ```shell
 nomer properties| grep gbif
 ```
+Refer to this blogpost by: https://zenodo.org/record/7576208#.Y9admXbMJPY
 
 <br>
 <br>
