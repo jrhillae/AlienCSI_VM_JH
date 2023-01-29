@@ -77,6 +77,7 @@ The file vespa_velutina_interactions.tsv contains all direct interactions of _Ve
 ```shell
 cat vespa_velutina_interactions.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr > vespa_velutina_interactions-light.tsv
 ```
+![image](https://user-images.githubusercontent.com/35692395/215334684-0d8e2aa7-cb77-4db7-8474-456758b5933b.png)
 
 ### Getting indirect interactions from GloBI
 Before we continue with filtering the indirect interactions of _Vespa velutina_ from GloBI, it is important to highlight that an interaction always consists out of a source species, an interaction type and a target species. In the file vespa_velutina_interactions.tsv, _Vespa velutina_ might occur both as source or target species. Now, we want to list all unique source and target species with which _Vespa velutina_ is interacting. To do this, we filter all unique species names from column 8 and 48 within the file vespa_velutina_interactions.tsv. Both columns refer to the [mapped species name](https://www.globalbioticinteractions.org/process) of the source species and target species, respectively.
