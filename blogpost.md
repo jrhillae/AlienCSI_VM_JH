@@ -57,7 +57,7 @@ To obtain the direct interactions, we now search the database for all lines cont
 ```shell  
 zgrep "Vespa velutina" interactions.tsv.gz > vespa_velutina_interactions.tsv   
 ```
-Herein, zgrep allows searching within zipped files. As such, a file does not not need to be unpacked beforehand. In this example, we are lucky as _Vespa velutina_ has no synonyms. In case your species of interest has many synonyms, they should all be included in this step.
+Herein, zgrep allows searching within zipped files. As such, a file does not not need to be unpacked beforehand. In this example, we are lucky as _Vespa velutina_ has no synonyms. In case your species of interest has multiple synonyms, the above code should be adapted to filter interactions.tsv.gz for all synonyms.
 
 Explore the file vespa_velutina_interactions.tsv by printing the first 10 lines of the dataframe within the terminal: 
  ```shell 
