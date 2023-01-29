@@ -9,6 +9,8 @@ Within a network, species can be either directly or indirectly linked. In this b
 
 [GloBI](https://www.globalbioticinteractions.org/data) indexes species interaction data. It also offers the possibility to visualise species interactions. However, if you want to dive into the world of GloBI to explore its data for research, it is worth the effort to learn how to work with the complete GloBI database. Here, I offer a starting guide (set up with the help of Jorrit Poelen) on how to access the complete GloBI database to create networks. The flow presented below is largely based on [interactIAS](https://github.com/AgentschapPlantentuinMeise/interactias/blob/master/notebook/interactias.ipynb), a Jupyter notebook created by Quentin Groom. This work was supported by Action CA17122 Increasing understanding of alien species through citizen science (Alien-CSI), supported by COST (European Cooperation in Science and Technology www.cost.eu) through a virtual short term scientific mission.
 
+![image](https://user-images.githubusercontent.com/35692395/215334684-0d8e2aa7-cb77-4db7-8474-456758b5933b.png){width=50%}
+
 ## Install & setup WSL
 The fastest way to perform data wrangling on large datafiles is using the Linux command line. If you have a Windows laptop (like me) the best way to get started is by installing [WSL](https://learn.microsoft.com/en-us/windows/wsl/) (Windows subsystem for Linux) following [this instruction guide](https://learn.microsoft.com/en-us/windows/wsl/install). I choose to install Ubuntu as Linux distribution. 
 
@@ -77,7 +79,7 @@ The file vespa_velutina_interactions.tsv contains all direct interactions of _Ve
 ```shell
 cat vespa_velutina_interactions.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr > vespa_velutina_interactions-light.tsv
 ```
-![image](https://user-images.githubusercontent.com/35692395/215334684-0d8e2aa7-cb77-4db7-8474-456758b5933b.png)
+
 
 ### Getting indirect interactions from GloBI
 Before we continue with filtering the indirect interactions of _Vespa velutina_ from GloBI, it is important to highlight that an interaction always consists out of a source species, an interaction type and a target species. In the file vespa_velutina_interactions.tsv, _Vespa velutina_ might occur both as source or target species. Now, we want to list all unique source and target species with which _Vespa velutina_ is interacting. To do this, we filter all unique species names from column 8 and 48 within the file vespa_velutina_interactions.tsv. Both columns refer to the [mapped species name](https://www.globalbioticinteractions.org/process) of the source species and target species, respectively.
