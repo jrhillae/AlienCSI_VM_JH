@@ -103,6 +103,12 @@ cat secondary_interactions_sources.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62
 cat secondary_interactions_targets.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr > secondary_interactions_targets_light.tsv
 ```
 
+<p align="center">
+<img align="center" alt= Gilles San Martin src="h![image](https://user-images.githubusercontent.com/35692395/215336135-50021920-9c8f-41ed-8440-452979e4cf03.png)
+" width="400" />
+</p>
+
+
 ## Fine-tuning of network within R
 
 Now, we will fine-tune these interactions into a network in R.
