@@ -105,10 +105,10 @@ Again, we clean up both output files by only selecting particular columns (see a
 cat secondary_interactions_sources.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr > secondary_interactions_sources_light.tsv
 cat secondary_interactions_targets.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr > secondary_interactions_targets_light.tsv
 ```
-![image](https://user-images.githubusercontent.com/35692395/215336304-d8339481-9169-483c-9618-c65904c6c20c.png)
 
 <p align="center">
 <img align="center" alt= "Gilles San Martin" src="https://user-images.githubusercontent.com/35692395/215336135-50021920-9c8f-41ed-8440-452979e4cf03.png" " width="400" />
+<p "Gilles San Martin">
 </p>
 
 
