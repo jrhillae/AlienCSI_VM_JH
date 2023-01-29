@@ -109,7 +109,7 @@ cat secondary_interactions_targets.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62
 <p align="center">
 </figure>
 <img align="center" src="https://user-images.githubusercontent.com/35692395/215336135-50021920-9c8f-41ed-8440-452979e4cf03.png" " width="800" />
-<figcaption>picture: Gilles San Martin</figcaption>
+<figcaption>Picture: Gilles San Martin</figcaption>
 </figure>
 </p>
 
