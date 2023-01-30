@@ -383,7 +383,7 @@ As an example, the reference of each individual interaction in the file vespa_ve
 cat vespa-velutina-interactions.tsv | cut -f87 | uniq
 ```
 Do also cite the version of GloBI that you downloaded:
-An overview is avaibele [here](https://zenodo.org/record/7348355#.Y9O0OnbMJPY).
+An overview is available [here](https://zenodo.org/record/7348355#.Y9O0OnbMJPY).
 
 The sources of nomer can be found by:
 ```shell
