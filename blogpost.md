@@ -1,7 +1,7 @@
 ![image](https://user-images.githubusercontent.com/35692395/215333674-97fcb011-80fe-4f15-b6e4-9984ffb85843.png)
 
 Written by
-Jasmijn Hillaert (Research Institute for Nature and Forest, Belgium).
+Jasmijn Hillaert (Research Institute for Nature and Forest, Belgium),
 in 2023.
 
 Any comments or issues can be posted [here](https://github.com/jrhillae/AlienCSI_VM_JH/issues) or send by [email](jasmijn.hillaert@inbo.be).
