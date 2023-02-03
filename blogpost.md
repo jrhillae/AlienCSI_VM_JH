@@ -1,6 +1,13 @@
 ![image](https://user-images.githubusercontent.com/35692395/215333674-97fcb011-80fe-4f15-b6e4-9984ffb85843.png)
 
+Written by
+Jasmijn Hillaert (Research Institute for Nature and Forest, Belgium).
+in 2023.
+
+Any comments or issues can be posted [here](https://github.com/jrhillae/AlienCSI_VM_JH/issues) or send by [email](jasmijn.hillaert@inbo.be).
+
 # Getting started with GloBI to create networks
+
 
 Daily, millions of species are interacting. When species occurences and their [interactions are reported by the wider public](https://alien-csi.eu/news-and-media/blogs/ecological-interactions-workshop-ecological-interactions-networks), a valuable treasure of data is created which helps to understand how ecosystems are functioning worldwide. In the light of global change, it is important to not only study species extinctions but also extinctions of interactions due to unbalanced range shifting of interacting species ([Valiente-Banuet et al., 2014](https://doi.org/10.1111/1365-2435.12356)). Moreover, the impact of invasive species on biodiversity can be estimated by their interaction network. 
 
