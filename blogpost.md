@@ -366,7 +366,7 @@ PrimSecInteractions <- rbind(primaryInteractionsPartI,
                              secondaryInteractionsPartI,
                              secondaryInteractionsPartII)%>%
   select(sourceSpeciesName, interactionType, targetSpeciesName)%>%
-  rename(source=sourceSpeciesName, interaction=interactionType, target=targetSpeciesName)
+  rename(source=sourceSpeciesName, interaction=interactionType, target=targetSpeciesName)%>%
   distinct()
   
  write.csv(PrimSecInteractions, 'edges.csv', row.names=FALSE)
