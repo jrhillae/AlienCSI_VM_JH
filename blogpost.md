@@ -114,7 +114,15 @@ Again, we clean up both output files by only selecting particular columns (see a
 cat secondary_interactions_sources.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr > secondary_interactions_sources_light.tsv
 cat secondary_interactions_targets.tsv| cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr > secondary_interactions_targets_light.tsv
 ```
-For completeness, I mention that there is a list of [refuted interactions](https://zenodo.org/record/7348355/files/refuted-interactions.tsv.gz) available on GloBI. Interactions within this list contain errors and should therefore be excluded from your network. This is not illustrated here.
+For completeness, I mention that there is a list of [refuted interactions](https://zenodo.org/record/7348355/files/refuted-interactions.tsv.gz) available on GloBI. Interactions within this list contain errors and should therefore be excluded from your network. 
+
+Open the file with refuted interactions and clean it up.
+
+```shell
+cat refuted-interactions.tsv.gz | gunzip | head -n 1
+cat refuted-interactions.tsv.gz | gunzip | cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr > refuted_interactions_light.tsv
+```
+
 
 <p align="center">
 </figure>
