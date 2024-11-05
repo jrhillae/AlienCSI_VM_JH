@@ -123,7 +123,6 @@ cat refuted-interactions.tsv.gz | gunzip | head -n 1
 cat refuted-interactions.tsv.gz | gunzip | cut -f2,3,4,8,20,22,39,42,43,44,48,60,62 | sort | uniq -c | sort -nr > refuted_interactions_light.tsv
 ```
 
-
 <p align="center">
 </figure>
 <img align="center" src="https://user-images.githubusercontent.com/35692395/215336135-50021920-9c8f-41ed-8440-452979e4cf03.png" " width="800" />

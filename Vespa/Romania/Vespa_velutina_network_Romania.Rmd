@@ -1,0 +1,80 @@
+
+```{r}
+library(dplyr)
+library(stringr)
+library(tidyr)
+library(tidyverse)
+library(purrr)
+```
+```{r}
+header <- c('sourceTaxonIDs',
+            'sourceTaxonName',
+            'sourceTaxonLevel',
+            'sourceSpeciesName',
+            'sourcePhylum',
+            'sourceKingdom',
+            'interactionType',
+            'targetTaxonIDs',
+            'targetTaxonName',
+            'targetTaxonLevel', 
+            'targetSpeciesName',
+            'targetPhylum',
+            'targetKingdom')
+
+#reading in GLOBI output
+interactions_sources <- read.csv("~/GitHub/AlienCSI_VM_JH/Vespa/Romania/secundary_interactions_sources_light.tsv",
+  sep = "\t",
+  quote="",
+  header=FALSE,
+  col.names=header)
+
+interactions_targets <- read.csv("~/GitHub/AlienCSI_VM_JH/Vespa/Romania/secundary_interactions_targets_light.tsv",
+  sep = "\t",
+  quote="",
+  header=FALSE,
+  col.names=header) 
+ 
+primary_interactions <- read.csv("~/GitHub/AlienCSI_VM_JH/Vespa/Romania/vespa_velutina_interactions_light.tsv",
+  sep = "\t",
+  quote="",
+  header=FALSE,
+  col.names=header) 
+
+raw_interactions <- rbind(interactions_sources,
+                          interactions_targets,
+                          primary_interactions)
+```
+
+
+```{r}
+#remove refuted interactions
+refuted_interactions <- read.csv("~/GitHub/AlienCSI_VM_JH/Vespa/Romania/refuted_interactions_light.tsv",
+  sep = "\t",
+  quote="",
+  header=FALSE,
+  col.names=header) 
+
+raw_interactions <- raw_interactions%>%
+  mutate(id = paste0(sourceSpeciesName, 
+                     sourceTaxonName,
+                     interactionType,
+                     targetTaxonName,
+                     targetSpeciesName))
+
+refuted_interactions <- refuted_interactions%>%
+  mutate(id = paste0(sourceSpeciesName, 
+                     sourceTaxonName,
+                     interactionType,
+                     targetTaxonName,
+                     targetSpeciesName))
+
+test <- raw_interactions%>%
+  filter(id%in%refuted_interactions$id)
+
+raw_interactions_cleaned <- raw_interactions %>%
+  filter(!id%in%refuted_interactions$id)
+
+write.csv(raw_interactions_cleaned, 'raw_interactions_cleaned.csv')
+```
+
+
