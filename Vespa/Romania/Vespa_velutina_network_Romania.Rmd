@@ -75,6 +75,92 @@ raw_interactions_cleaned <- raw_interactions %>%
   filter(!id%in%refuted_interactions$id)
 
 write.csv(raw_interactions_cleaned, 'raw_interactions_cleaned.csv')
+raw_interactions_cleaned <- read.csv('~/GitHub/AlienCSI_VM_JH/Vespa/Romania/raw_interactions_cleaned.csv')
 ```
 
+```{r}
+#clean all species to match with GitHub backbone
+
+source_species_raw <- raw_interactions_cleaned%>%
+  select(sourceSpeciesName, 
+        sourcePhylum,
+        sourceKingdom)%>%
+  mutate(sourceKingdom=str_replace(sourceKingdom, 'Metazoa', 'Animalia'))%>%
+  rename(SpeciesName = "sourceSpeciesName",
+         Phylum = "sourcePhylum",
+         Kingdom = "sourceKingdom")
+  
+target_species_raw <- raw_interactions_cleaned%>%
+  select(targetSpeciesName, 
+        targetPhylum,
+        targetKingdom)%>%
+  mutate(targetKingdom=str_replace(targetKingdom, 'Metazoa', 'Animalia'))%>%
+  rename(SpeciesName = "targetSpeciesName",
+         Phylum = "targetPhylum",
+         Kingdom = "targetKingdom")
+
+species_unmatched <- rbind(source_species_raw,
+                           target_species_raw)%>%
+  distinct()%>%
+  filter(SpeciesName!="")%>%
+  mutate(GBIF_key=NA)
+
+final_output <- data.frame()
+
+for (row in 1:nrow(species_unmatched)) {
+    species <- species_unmatched[row, "SpeciesName"]
+    king <- species_unmatched[row, "Kingdom"]
+    
+    output <- name_backbone(name= species, kingdom= king)
+    
+    if ('species'%in%names(output)) {
+       
+    output <- output%>%
+            select(c("usageKey",
+               "scientificName",
+               "canonicalName",
+               "rank",
+               "status",
+               "confidence",
+               "matchType",
+               "kingdom",
+               "species",
+               "kingdomKey",
+               "speciesKey"))
+    
+    output$species_name_network <- species
+    output$ king_network <- king
+    
+    if (!nrow(final_output)==0){
+        final_output <- rbind(final_output,
+                          output)
+    } else {
+      final_output <- output
+    }
+    
+     }
+  
+}
+
+write.csv(final_output, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/all_species_matched_to_GBIF_backbone.csv')
+```
+
+
+```{r}
+interactions_cleaned <- raw_interactions_cleaned %>% 
+ filter(interactionType %in% interactions_to_include)%>%
+ filter(sourceSpeciesName!="")%>%
+ filter(targetSpeciesName!="")%>%
+ select(sourceSpeciesName, 
+        sourcePhylum,
+        sourceKingdom,
+        interactionType,
+        targetSpeciesName,
+        targetPhylum,
+        targetKingdom)%>%
+ mutate(interactionType = str_replace(interactionType, "kills", "preyson"))%>%
+ mutate(sourceKingdom=str_replace(sourceKingdom, 'Metazoa', 'Animalia'))%>%
+ mutate(targetKingdom=str_replace(targetKingdom, 'Metazoa', 'Animalia'))%>%
+ distinct()
+```
 
