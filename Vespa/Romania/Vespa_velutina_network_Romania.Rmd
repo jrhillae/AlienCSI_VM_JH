@@ -74,7 +74,7 @@ test <- raw_interactions%>%
 raw_interactions_cleaned <- raw_interactions %>%
   filter(!id%in%refuted_interactions$id)
 
-write.csv(raw_interactions_cleaned, 'raw_interactions_cleaned.csv')
+write.csv(raw_interactions_cleaned, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/raw_interactions_cleaned.csv')
 
 raw_interactions_cleaned <- read.csv('~/GitHub/AlienCSI_VM_JH/Vespa/Romania/raw_interactions_cleaned.csv')
 ```
