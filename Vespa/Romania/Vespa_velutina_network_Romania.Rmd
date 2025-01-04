@@ -177,6 +177,11 @@ speciesNetworkCubeRO <- all_species_matched_GBIF %>% filter(
  
 write.csv(speciesNetworkCubeRO, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/speciesListNetworkRO.csv')
 
+nodes_RO <- speciesNetworkCubeRO %>%
+  select(species_name_network, kingdom)
+
+write.csv(nodes_RO, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/nodes_RO.csv', row.names=FALSE)
+
 ```
 
 
