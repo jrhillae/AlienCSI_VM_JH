@@ -75,6 +75,7 @@ raw_interactions_cleaned <- raw_interactions %>%
   filter(!id%in%refuted_interactions$id)
 
 write.csv(raw_interactions_cleaned, 'raw_interactions_cleaned.csv')
+
 raw_interactions_cleaned <- read.csv('~/GitHub/AlienCSI_VM_JH/Vespa/Romania/raw_interactions_cleaned.csv')
 ```
 
@@ -143,12 +144,13 @@ for (row in 1:nrow(species_unmatched)) {
 }
 
 write.csv(final_output, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/all_species_matched_to_GBIF_backbone.csv')
+
+all_species_matched_GBIF <- read.csv('~/GitHub/AlienCSI_VM_JH/Vespa/Romania/all_species_matched_to_GBIF_backbone.csv')
 ```
 
 
 ```{r}
-interactions_cleaned <- raw_interactions_cleaned %>% 
- filter(interactionType %in% interactions_to_include)%>%
+interactionsCleaned <- raw_interactions_cleaned %>% 
  filter(sourceSpeciesName!="")%>%
  filter(targetSpeciesName!="")%>%
  select(sourceSpeciesName, 
@@ -158,9 +160,69 @@ interactions_cleaned <- raw_interactions_cleaned %>%
         targetSpeciesName,
         targetPhylum,
         targetKingdom)%>%
- mutate(interactionType = str_replace(interactionType, "kills", "preyson"))%>%
  mutate(sourceKingdom=str_replace(sourceKingdom, 'Metazoa', 'Animalia'))%>%
  mutate(targetKingdom=str_replace(targetKingdom, 'Metazoa', 'Animalia'))%>%
  distinct()
+
+write.csv(interactionsCleaned, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/interactionsCleaned.csv')
+```
+
+```{r}
+RO_cube <-  read_tsv('~/GitHub/AlienCSI_VM_JH/Vespa/Romania/0056467-241126133413365.csv')
+```
+```{r}
+#which species from the network occur in the Romanian cube?
+speciesNetworkCubeRO <- all_species_matched_GBIF %>% filter(
+  speciesKey%in%RO_cube$specieskey)
+ 
+write.csv(speciesNetworkCubeRO, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/speciesListNetworkRO.csv')
+
+```
+
+
+
+```{r}
+#What are the primary interactions of Vespa velutina? To answer this question we look up all interactions having Vespa velutina as source and a species within the Romanian cube as target (PartI), and all interactions having a species within the cube as source and Vespa velutina as target (PartII). Together, these represent the primary interactions of Vespa velutina in Belgium, according to GloBI and the Romanian species cube.
+
+primaryInteractionsPartI <- interactionsCleaned %>%
+  filter(sourceSpeciesName == "Vespa velutina")%>%
+  filter(targetSpeciesName%in%speciesNetworkCubeRO$species_name_network)
+
+
+primaryInteractionsPartII<- interactionsCleaned %>%
+   dplyr::filter(sourceSpeciesName%in%speciesNetworkCubeRO$species_name_network)%>%
+   dplyr::filter(targetSpeciesName == "Vespa velutina")
+
+primary_species_RO <- unique(c(primaryInteractionsPartI$targetSpeciesName,
+                           primaryInteractionsPartII$sourceSpeciesName))
+```
+
+```{r}
+secondaryInteractionsPartI <- interactionsCleaned %>%
+  filter(sourceSpeciesName%in%primary_species_RO)%>%
+  filter(targetSpeciesName%in%speciesNetworkCubeRO$species_name_network)
+
+secondaryInteractionsPartII<- interactionsCleaned %>%
+  filter(sourceSpeciesName%in%speciesNetworkCubeRO$species_name_network)%>%
+  filter(targetSpeciesName%in%primary_species_RO)
+
+secondary_species_RO<- unique(c(secondaryInteractionsPartI$targetSpeciesName,
+                           secondaryInteractionsPartII$sourceSpeciesName))
+
+secondary_species_RO <- secondary_species_RO[!(secondary_species_RO%in%primary_species_RO)]
+```
+
+```{r}
+PrimSecInteractions_RO <- rbind(primaryInteractionsPartI,
+                             primaryInteractionsPartII,
+                             secondaryInteractionsPartI,
+                             secondaryInteractionsPartII)%>%
+  select(sourceSpeciesName, interactionType, targetSpeciesName)%>%
+  rename(source=sourceSpeciesName, interaction=interactionType, target=targetSpeciesName)%>%
+  distinct()
+
+write.csv(PrimSecInteractions_RO, 'edges_RO.csv', row.names=FALSE)
+write.csv(primary_species_RO, 'primary_species_RO.csv', row.names=FALSE)
+write.csv(secondary_species_RO, 'secondary_species_RO.csv', row.names=FALSE)
 ```
 
