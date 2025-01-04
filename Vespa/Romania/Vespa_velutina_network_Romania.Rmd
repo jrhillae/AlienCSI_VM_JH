@@ -221,8 +221,8 @@ PrimSecInteractions_RO <- rbind(primaryInteractionsPartI,
   rename(source=sourceSpeciesName, interaction=interactionType, target=targetSpeciesName)%>%
   distinct()
 
-write.csv(PrimSecInteractions_RO, 'edges_RO.csv', row.names=FALSE)
-write.csv(primary_species_RO, 'primary_species_RO.csv', row.names=FALSE)
-write.csv(secondary_species_RO, 'secondary_species_RO.csv', row.names=FALSE)
+write.csv(PrimSecInteractions_RO, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/edges_RO.csv', row.names=FALSE)
+write.csv(primary_species_RO, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/primary_species_RO.csv', row.names=FALSE)
+write.csv(secondary_species_RO, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/secondary_species_RO.csv', row.names=FALSE)
 ```
 
