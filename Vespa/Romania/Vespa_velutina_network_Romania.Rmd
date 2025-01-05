@@ -177,10 +177,7 @@ speciesNetworkCubeRO <- all_species_matched_GBIF %>% filter(
  
 write.csv(speciesNetworkCubeRO, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/speciesListNetworkRO.csv')
 
-nodes_RO <- speciesNetworkCubeRO %>%
-  select(species_name_network, kingdom)
 
-write.csv(nodes_RO, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/nodes_RO.csv', row.names=FALSE)
 
 ```
 
@@ -229,5 +226,18 @@ PrimSecInteractions_RO <- rbind(primaryInteractionsPartI,
 write.csv(PrimSecInteractions_RO, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/edges_RO.csv', row.names=FALSE)
 write.csv(primary_species_RO, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/primary_species_RO.csv', row.names=FALSE)
 write.csv(secondary_species_RO, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/secondary_species_RO.csv', row.names=FALSE)
+```
+
+```{r}
+
+PrimSecInteractions_RO <- read.csv('~/GitHub/AlienCSI_VM_JH/Vespa/Romania/edges_RO.csv')
+speciesNetworkCubeRO <- read.csv('~/GitHub/AlienCSI_VM_JH/Vespa/Romania/speciesListNetworkRO.csv')
+
+nodes_RO <- speciesNetworkCubeRO %>%
+  select(species_name_network, kingdom)%>%
+  filter(species_name_network %in% PrimSecInteractions_RO$source | 
+           species_name_network %in% PrimSecInteractions_RO$target)
+
+write.csv(nodes_RO, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/nodes_RO.csv', row.names=FALSE)
 ```
 
