@@ -1,0 +1,243 @@
+
+```{r}
+library(dplyr)
+library(stringr)
+library(tidyr)
+library(tidyverse)
+library(purrr)
+```
+```{r}
+header <- c('sourceTaxonIDs',
+            'sourceTaxonName',
+            'sourceTaxonLevel',
+            'sourceSpeciesName',
+            'sourcePhylum',
+            'sourceKingdom',
+            'interactionType',
+            'targetTaxonIDs',
+            'targetTaxonName',
+            'targetTaxonLevel', 
+            'targetSpeciesName',
+            'targetPhylum',
+            'targetKingdom')
+
+#reading in GLOBI output
+interactions_sources <- read.csv("~/GitHub/AlienCSI_VM_JH/Vespa/Romania/secundary_interactions_sources_light.tsv",
+  sep = "\t",
+  quote="",
+  header=FALSE,
+  col.names=header)
+
+interactions_targets <- read.csv("~/GitHub/AlienCSI_VM_JH/Vespa/Romania/secundary_interactions_targets_light.tsv",
+  sep = "\t",
+  quote="",
+  header=FALSE,
+  col.names=header) 
+ 
+primary_interactions <- read.csv("~/GitHub/AlienCSI_VM_JH/Vespa/Romania/vespa_velutina_interactions_light.tsv",
+  sep = "\t",
+  quote="",
+  header=FALSE,
+  col.names=header) 
+
+raw_interactions <- rbind(interactions_sources,
+                          interactions_targets,
+                          primary_interactions)
+```
+
+
+```{r}
+#remove refuted interactions
+refuted_interactions <- read.csv("~/GitHub/AlienCSI_VM_JH/Vespa/Romania/refuted_interactions_light.tsv",
+  sep = "\t",
+  quote="",
+  header=FALSE,
+  col.names=header) 
+
+raw_interactions <- raw_interactions%>%
+  mutate(id = paste0(sourceSpeciesName, 
+                     sourceTaxonName,
+                     interactionType,
+                     targetTaxonName,
+                     targetSpeciesName))
+
+refuted_interactions <- refuted_interactions%>%
+  mutate(id = paste0(sourceSpeciesName, 
+                     sourceTaxonName,
+                     interactionType,
+                     targetTaxonName,
+                     targetSpeciesName))
+
+test <- raw_interactions%>%
+  filter(id%in%refuted_interactions$id)
+
+raw_interactions_cleaned <- raw_interactions %>%
+  filter(!id%in%refuted_interactions$id)
+
+write.csv(raw_interactions_cleaned, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/raw_interactions_cleaned.csv')
+
+raw_interactions_cleaned <- read.csv('~/GitHub/AlienCSI_VM_JH/Vespa/Romania/raw_interactions_cleaned.csv')
+```
+
+```{r}
+#clean all species to match with GitHub backbone
+
+source_species_raw <- raw_interactions_cleaned%>%
+  select(sourceSpeciesName, 
+        sourcePhylum,
+        sourceKingdom)%>%
+  mutate(sourceKingdom=str_replace(sourceKingdom, 'Metazoa', 'Animalia'))%>%
+  rename(SpeciesName = "sourceSpeciesName",
+         Phylum = "sourcePhylum",
+         Kingdom = "sourceKingdom")
+  
+target_species_raw <- raw_interactions_cleaned%>%
+  select(targetSpeciesName, 
+        targetPhylum,
+        targetKingdom)%>%
+  mutate(targetKingdom=str_replace(targetKingdom, 'Metazoa', 'Animalia'))%>%
+  rename(SpeciesName = "targetSpeciesName",
+         Phylum = "targetPhylum",
+         Kingdom = "targetKingdom")
+
+species_unmatched <- rbind(source_species_raw,
+                           target_species_raw)%>%
+  distinct()%>%
+  filter(SpeciesName!="")%>%
+  mutate(GBIF_key=NA)
+
+final_output <- data.frame()
+
+for (row in 1:nrow(species_unmatched)) {
+    species <- species_unmatched[row, "SpeciesName"]
+    king <- species_unmatched[row, "Kingdom"]
+    
+    output <- name_backbone(name= species, kingdom= king)
+    
+    if ('species'%in%names(output)) {
+       
+    output <- output%>%
+            select(c("usageKey",
+               "scientificName",
+               "canonicalName",
+               "rank",
+               "status",
+               "confidence",
+               "matchType",
+               "kingdom",
+               "species",
+               "kingdomKey",
+               "speciesKey"))
+    
+    output$species_name_network <- species
+    output$ king_network <- king
+    
+    if (!nrow(final_output)==0){
+        final_output <- rbind(final_output,
+                          output)
+    } else {
+      final_output <- output
+    }
+    
+     }
+  
+}
+
+write.csv(final_output, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/all_species_matched_to_GBIF_backbone.csv')
+
+all_species_matched_GBIF <- read.csv('~/GitHub/AlienCSI_VM_JH/Vespa/Romania/all_species_matched_to_GBIF_backbone.csv')
+```
+
+
+```{r}
+interactionsCleaned <- raw_interactions_cleaned %>% 
+ filter(sourceSpeciesName!="")%>%
+ filter(targetSpeciesName!="")%>%
+ select(sourceSpeciesName, 
+        sourcePhylum,
+        sourceKingdom,
+        interactionType,
+        targetSpeciesName,
+        targetPhylum,
+        targetKingdom)%>%
+ mutate(sourceKingdom=str_replace(sourceKingdom, 'Metazoa', 'Animalia'))%>%
+ mutate(targetKingdom=str_replace(targetKingdom, 'Metazoa', 'Animalia'))%>%
+ distinct()
+
+write.csv(interactionsCleaned, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/interactionsCleaned.csv')
+```
+
+```{r}
+RO_cube <-  read_tsv('~/GitHub/AlienCSI_VM_JH/Vespa/Romania/0056467-241126133413365.csv')
+```
+```{r}
+#which species from the network occur in the Romanian cube?
+speciesNetworkCubeRO <- all_species_matched_GBIF %>% filter(
+  speciesKey%in%RO_cube$specieskey)
+ 
+write.csv(speciesNetworkCubeRO, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/speciesListNetworkRO.csv')
+
+
+
+```
+
+
+
+```{r}
+#What are the primary interactions of Vespa velutina? To answer this question we look up all interactions having Vespa velutina as source and a species within the Romanian cube as target (PartI), and all interactions having a species within the cube as source and Vespa velutina as target (PartII). Together, these represent the primary interactions of Vespa velutina in Belgium, according to GloBI and the Romanian species cube.
+
+primaryInteractionsPartI <- interactionsCleaned %>%
+  filter(sourceSpeciesName == "Vespa velutina")%>%
+  filter(targetSpeciesName%in%speciesNetworkCubeRO$species_name_network)
+
+
+primaryInteractionsPartII<- interactionsCleaned %>%
+   dplyr::filter(sourceSpeciesName%in%speciesNetworkCubeRO$species_name_network)%>%
+   dplyr::filter(targetSpeciesName == "Vespa velutina")
+
+primary_species_RO <- unique(c(primaryInteractionsPartI$targetSpeciesName,
+                           primaryInteractionsPartII$sourceSpeciesName))
+```
+
+```{r}
+secondaryInteractionsPartI <- interactionsCleaned %>%
+  filter(sourceSpeciesName%in%primary_species_RO)%>%
+  filter(targetSpeciesName%in%speciesNetworkCubeRO$species_name_network)
+
+secondaryInteractionsPartII<- interactionsCleaned %>%
+  filter(sourceSpeciesName%in%speciesNetworkCubeRO$species_name_network)%>%
+  filter(targetSpeciesName%in%primary_species_RO)
+
+secondary_species_RO<- unique(c(secondaryInteractionsPartI$targetSpeciesName,
+                           secondaryInteractionsPartII$sourceSpeciesName))
+
+secondary_species_RO <- secondary_species_RO[!(secondary_species_RO%in%primary_species_RO)]
+```
+
+```{r}
+PrimSecInteractions_RO <- rbind(primaryInteractionsPartI,
+                             primaryInteractionsPartII,
+                             secondaryInteractionsPartI,
+                             secondaryInteractionsPartII)%>%
+  select(sourceSpeciesName, interactionType, targetSpeciesName)%>%
+  rename(source=sourceSpeciesName, interaction=interactionType, target=targetSpeciesName)%>%
+  distinct()
+
+write.csv(PrimSecInteractions_RO, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/edges_RO.csv', row.names=FALSE)
+write.csv(primary_species_RO, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/primary_species_RO.csv', row.names=FALSE)
+write.csv(secondary_species_RO, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/secondary_species_RO.csv', row.names=FALSE)
+```
+
+```{r}
+
+PrimSecInteractions_RO <- read.csv('~/GitHub/AlienCSI_VM_JH/Vespa/Romania/edges_RO.csv')
+speciesNetworkCubeRO <- read.csv('~/GitHub/AlienCSI_VM_JH/Vespa/Romania/speciesListNetworkRO.csv')
+
+nodes_RO <- speciesNetworkCubeRO %>%
+  select(species_name_network, kingdom)%>%
+  filter(species_name_network %in% PrimSecInteractions_RO$source | 
+           species_name_network %in% PrimSecInteractions_RO$target)
+
+write.csv(nodes_RO, '~/GitHub/AlienCSI_VM_JH/Vespa/Romania/nodes_RO.csv', row.names=FALSE)
+```
+
